@@ -37,7 +37,7 @@ const PageLinks: React.FC = () => {
                 route === l.url
                   ? `font-medium bg-slate-300 dark:bg-slate-800`
                   : `hover:bg-slate-200 hover:dark:bg-slate-700`
-              } text-lg px-4 py-2 mr-2 rounded-lg`}
+              } text-md px-4 py-2 mr-2 rounded-lg`}
             >
               {l.title}
             </a>

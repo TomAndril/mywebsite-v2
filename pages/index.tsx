@@ -5,7 +5,7 @@ import Text from "../components/Text"
 
 const Hero: React.FC = () => {
   return (
-    <div className="mt-36">
+    <div className="mt-24 md:mt-36">
       <Text
         variant="span"
         className="text-xl sm:text-2xl md:text-3xl lg:text-4xl"
@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
         Sweden. I'm a self-taught full-stack Developer and I've been programming
         for more than 4 years and still learning new technologies every week.
         Mostly focused on front-end related technologies but my passion is
-        taking me to Mobile, Desktop and beyond 🚀. I currently work at {" "}
+        taking me to Mobile, Desktop and beyond 🚀. I currently work at{" "}
         <a
           target="_blank"
           rel="noreferrer"
@@ -119,11 +119,20 @@ const MySkills: React.FC = () => {
   )
 }
 
+const Contact: React.FC = () => {
+  return (
+    <div>
+      <h1>Contact</h1>
+    </div>
+  )
+}
+
 const Home: NextPage = () => {
   return (
     <BaseLayout>
       <Hero />
       <MySkills />
+      <Contact />
     </BaseLayout>
   )
 }

@@ -28,7 +28,7 @@ const pageLinks: IPageLinks[] = [
 const PageLinks: React.FC = () => {
   const { route } = useRouter()
   return (
-    <ul className="flex items-center justify-center">
+    <ul className="hidden items-center justify-center md:flex">
       {pageLinks.map((l) => (
         <li key={l.url}>
           <Link href={l.url}>

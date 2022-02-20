@@ -43,7 +43,7 @@ const SocialLinks: React.FC = () => {
       {socialLinks.map((l) => (
         <li
           key={l.url}
-          className="ml-2 cursor-pointer rounded p-3 bg-gradient-to-tr from-cyan-500 to-blue-500"
+          className="mr-2 md:ml-2 cursor-pointer rounded p-3 bg-gradient-to-tr from-cyan-500 to-blue-500"
         >
           <a target="_blank" href={l.url} rel="noreferrer">
             <l.Component {...iconProps} />

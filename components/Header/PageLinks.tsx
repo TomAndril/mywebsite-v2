@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { MouseEventHandler, useCallback } from "react"
 
 interface IPageLinks {
   url: string

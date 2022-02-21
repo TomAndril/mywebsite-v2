@@ -1,15 +1,24 @@
 import Footer from "./Footer"
 import Header from "./Header"
+import CustomHead from "./Head"
 
-const BaseLayout: React.FC = ({ children }) => {
+interface Props {
+  title: string
+  description: string
+}
+
+const BaseLayout: React.FC<Props> = ({ children, description, title }) => {
   return (
-    <div className="max-w-4xl px-8 m-auto lg:px-0">
-      <main>
-        <Header />
-        {children}
-        <Footer />
-      </main>
-    </div>
+    <>
+      <CustomHead title={title} description={description} />
+      <div className="max-w-4xl px-8 m-auto lg:px-0">
+        <main>
+          <Header />
+          {children}
+          <Footer />
+        </main>
+      </div>
+    </>
   )
 }
 

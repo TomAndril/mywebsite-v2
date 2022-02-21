@@ -3,7 +3,7 @@ import BaseLayout from "../components/BaseLayout"
 
 const Blog: NextPage = () => {
   return (
-    <BaseLayout>
+    <BaseLayout title="Tomas Nasjleti - Blog" description="Tomas Nasjleti personal blog" >
       <h1>Holis</h1>
     </BaseLayout>
   )

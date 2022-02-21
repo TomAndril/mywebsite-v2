@@ -35,6 +35,7 @@ class Doc extends Document {
           />
 
           <link rel="manifest" href="/manifest.json" />
+          <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico"></link>
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -51,11 +52,6 @@ class Doc extends Document {
             type="image/png"
             sizes="16x16"
             href="/favicons/favicon-16x16.png"
-          />
-          <link
-            rel="mask-icon"
-            href="/favicons//safari-pinned-tab.svg"
-            color="#161b22"
           />
           <meta name="msapplication-TileColor" content="#161b22" />
           <meta name="theme-color" content="#161b22" />

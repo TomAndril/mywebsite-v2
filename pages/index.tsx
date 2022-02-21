@@ -8,7 +8,10 @@ import MySkills from "../sections/MySkills"
 
 const Home: NextPage = () => {
   return (
-    <BaseLayout>
+    <BaseLayout
+      title="Tomas Nasjleti - Web Developer"
+      description="Tomas Nasjleti Website"
+    >
       <Hero />
       <MySkills />
       <Contact />

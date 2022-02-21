@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
       >
         And I'm a{" "}
         <br className="block sm:hidden" />
-        <span className="bg-gradient-to-r from-pink-500 to-yellow-500">
+        <span className="font-extrabold text-transparent bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text">
           Web Developer.
         </span>
       </Text>

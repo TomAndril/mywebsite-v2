@@ -14,10 +14,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
     const msg: sgMail.MailDataRequired = {
       from: `${process.env.SENDGRID_RECIPIENT}`,
-      to: email,
+      to: `${process.env.SENDGRID_SECRET_EMAIL}`,
       subject: `You got a message from ${name}`,
       text: message,
-      html: `<p>${message}</p>`,
+      html: `
+        <h1>Hi!</h1>
+        <h2>You Got an email from ${name}</h2>
+        <br />
+        <p>Email Message: <strong>${message}</strong></p>
+        <br />
+        <p>You Can answer this email to <strong>${email}</strong></p>
+      `,
     }
 
     sgMail

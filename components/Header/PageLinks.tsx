@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { MouseEventHandler, useCallback } from "react"
 
 interface IPageLinks {
   url: string
@@ -20,19 +21,36 @@ const pageLinks: IPageLinks[] = [
     url: "/projects",
   },
   {
+    title: 'Contact',
+    url: '/#contact'
+  },
+  {
     url: "/blog",
-    title: "Blog",
+    title: "Blog",  
   },
 ]
 
 const PageLinks: React.FC = () => {
   const { route } = useRouter()
+
+  const handleClick = (e: any) => {
+    const href = e.target.href
+    if (href.includes('#')) {
+      const hrefID = href.slice(href.indexOf('#'), href.length)
+      const destination = document.getElementById(hrefID)
+      destination?.scrollIntoView({
+        behavior: "smooth"
+      })
+    }
+  }
+
   return (
-    <ul className="hidden items-center justify-center md:flex">
+    <ul className="items-center justify-center hidden md:flex">
       {pageLinks.map((l) => (
         <li key={l.url}>
           <Link href={l.url}>
             <a
+              onClick={handleClick}
               className={`${
                 route === l.url
                   ? `font-medium bg-slate-300 dark:bg-slate-800`

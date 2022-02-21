@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import type { NextPage } from "next"
 import BaseLayout from "../components/BaseLayout"
 

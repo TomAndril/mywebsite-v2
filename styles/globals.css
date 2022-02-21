@@ -7,16 +7,6 @@ html {
   transition: all 200ms;
 }
 
-html[data-theme="dark"] {
-  background-color: #0f172a;
-  color: #ffffff;
-}
-
-html[data-theme="light"] {
-  background-color: #ffffff;
-  color: #171717;
-}
-
 html,
 body {
   font-family: "Rubik", sans-serif;

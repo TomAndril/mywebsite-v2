@@ -57,7 +57,7 @@ const MySkills: React.FC = () => {
             className="mb-2 text-lg font-bold sm:text-xl md:text-2xl lg:text-3xl"
             variant="h3"
           >
-            Other
+            Others
           </Text>
           <Text variant="span">GIT | GitHub | GitLab</Text>
           <Text variant="span">VSCode</Text>

@@ -1,7 +1,9 @@
+/* eslint-disable react/display-name */
 import Text from "../components/Text"
 import { useForm } from "react-hook-form"
+import { forwardRef } from "react"
 
-const Contact: React.FC = () => {
+const Contact = forwardRef<HTMLDivElement>((_, ref) => {
   const {
     register,
     handleSubmit,
@@ -9,9 +11,8 @@ const Contact: React.FC = () => {
   } = useForm()
 
   const onSubmit = (data: any) => console.log(data)
-
   return (
-    <div className="mt-24">
+    <div className="mt-24" id='#contact'>
       <Text variant="h3" className="my-4 text-4xl font-medium">
         Contact Me
       </Text>
@@ -86,6 +87,6 @@ const Contact: React.FC = () => {
       </form>
     </div>
   )
-}
+})
 
 export default Contact

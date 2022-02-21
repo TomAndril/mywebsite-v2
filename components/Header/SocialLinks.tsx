@@ -30,20 +30,12 @@ const iconProps = {
 
 const SocialLinks: React.FC = () => {
   const { theme, setTheme } = useTheme()
-
-  const renderDarkModeToggler = () => {
-    if (theme === "dark") {
-      return <SunFill {...iconProps} />
-    }
-    return <MoonFill {...iconProps} />
-  }
-
   return (
     <ul className="flex items-center justify-center">
       {socialLinks.map((l) => (
         <li
           key={l.url}
-          className="mr-2 md:ml-2 cursor-pointer rounded p-3 bg-gradient-to-tr from-cyan-500 to-blue-500"
+          className="p-3 mr-2 rounded cursor-pointer md:ml-2 bg-gradient-to-tr from-cyan-500 to-blue-500"
         >
           <a target="_blank" href={l.url} rel="noreferrer">
             <l.Component {...iconProps} />
@@ -52,9 +44,14 @@ const SocialLinks: React.FC = () => {
       ))}
       <li
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="ml-2 cursor-pointer rounded p-3"
+        className="p-3 ml-2 rounded cursor-pointer"
       >
-        {renderDarkModeToggler()}
+        <div className="dark:hidden">
+          <MoonFill {...iconProps} />
+        </div>
+        <div className="hidden dark:block">
+          <SunFill {...iconProps} />
+        </div>
       </li>
     </ul>
   )

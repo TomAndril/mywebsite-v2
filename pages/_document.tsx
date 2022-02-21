@@ -68,7 +68,7 @@ class Doc extends Document {
 
           <meta name="author" content="Tomas Nasjleti" />
         </Head>
-        <body className="bg-white dark:bg-slate-900 transition-all">
+        <body className="transition-all duration-300 bg-white transi dark:bg-slate-900">
           <Main />
           <NextScript />
         </body>

@@ -45,7 +45,7 @@ const PageLinks: React.FC = () => {
   }
 
   return (
-    <ul className="items-center justify-center hidden md:flex">
+    <ul className="items-center justify-center hidden text-black md:flex dark:text-white">
       {pageLinks.map((l) => (
         <li key={l.url}>
           <Link href={l.url}>
@@ -53,8 +53,8 @@ const PageLinks: React.FC = () => {
               onClick={handleClick}
               className={`${
                 route === l.url
-                  ? `font-medium bg-slate-300 dark:bg-slate-800`
-                  : `hover:bg-slate-200 hover:dark:bg-slate-700`
+                  ? `font-bold bg-slate-300 dark:bg-slate-800`
+                  : `hover:bg-slate-200 hover:dark:bg-slate-700 transition-all`
               } text-md px-4 py-2 mr-2 rounded-lg`}
             >
               {l.title}

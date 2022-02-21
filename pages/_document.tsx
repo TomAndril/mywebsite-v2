@@ -55,14 +55,8 @@ class Doc extends Document {
           />
           <meta name="msapplication-TileColor" content="#161b22" />
           <meta name="theme-color" content="#161b22" />
-          <meta property="og:color" content="#161b22" />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:image"
-            content="https://caspertheghost.me/icons/icon-128.png"
-          />
-
           <meta name="author" content="Tomas Nasjleti" />
+          
         </Head>
         <body className="transition-all duration-300 bg-white transi dark:bg-slate-900">
           <Main />

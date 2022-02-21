@@ -5,6 +5,7 @@ import BaseLayout from "../components/BaseLayout"
 import Contact from "../sections/Contact"
 import Hero from "../sections/Hero"
 import MySkills from "../sections/MySkills"
+import Projects from "../sections/Projects"
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
     >
       <Hero />
       <MySkills />
+      <Projects />
       <Contact />
     </BaseLayout>
   )

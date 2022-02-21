@@ -17,7 +17,7 @@ const pageLinks: IPageLinks[] = [
   },
   {
     title: "Projects",
-    url: "/projects",
+    url: "/#projects",
   },
   {
     title: 'Contact',

@@ -1,4 +1,5 @@
 import "../styles/globals.css"
+import "../node_modules/atropos/atropos.css"
 import type { AppProps } from "next/app"
 import { ThemeProvider } from "next-themes"
 import { useRouter } from "next/router"
@@ -12,7 +13,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       const asPathID = asPath.slice(asPath.indexOf('#'), asPath.length)
       const destination = document.getElementById(asPathID)
       destination?.scrollIntoView({
-        behavior: "smooth"
+        behavior: "smooth",
+        block: "center"
       })
     }
   }, [asPath])

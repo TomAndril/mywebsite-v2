@@ -2,7 +2,7 @@ import Text from "../components/Text"
 
 const MySkills: React.FC = () => {
   return (
-    <div className="min-h-sectionHeight">
+    <div className="mt-24 min-h-sectionHeight">
       <Text variant="h3" className="text-4xl font-medium">
         My skills bag
       </Text>

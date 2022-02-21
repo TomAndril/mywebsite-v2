@@ -14,7 +14,7 @@ const Footer = () => {
             {" "}
             <Text variant="span">Tomas Nasjleti</Text>{" "}
           </a>
-          with ❤️
+          with <span className="animate-pulse">❤️</span>
         </Text>
         <Text variant="span">
           Built with{" "}

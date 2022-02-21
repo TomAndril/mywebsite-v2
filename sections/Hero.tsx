@@ -21,6 +21,7 @@ const Hero: React.FC = () => {
         className="mt-4 text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl"
       >
         And I'm a{" "}
+        <br className="block sm:hidden" />
         <span className="bg-gradient-to-r from-pink-500 to-yellow-500">
           Web Developer.
         </span>

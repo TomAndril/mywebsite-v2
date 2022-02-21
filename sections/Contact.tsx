@@ -1,18 +1,29 @@
 /* eslint-disable react/display-name */
 import Text from "../components/Text"
 import { useForm } from "react-hook-form"
-import { forwardRef } from "react"
+import useEmail from "../hooks/useEmail"
+import { Toaster } from "react-hot-toast"
 
-const Contact = forwardRef<HTMLDivElement>((_, ref) => {
+interface IInputTypes {
+  name: string
+  email: string
+  message: string
+}
+
+const Contact: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm<IInputTypes>()
 
-  const onSubmit = (data: any) => console.log(data)
+  const { sendEmail, status } = useEmail()
+  const { failed, loading, success } = status
+
+  const onSubmit = (data: IInputTypes) => sendEmail(data)
+
   return (
-    <div className="mt-24" id='#contact'>
+    <div className="mt-24" id="#contact">
       <Text variant="h3" className="my-4 text-4xl font-medium">
         Contact Me
       </Text>
@@ -28,7 +39,7 @@ const Contact = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <input
             id="Name"
-            className={`w-full p-2 border-2 rounded-md ${
+            className={`w-full p-2 border-2 rounded-md bg-slate-300 ${
               errors.name && "border-red-400"
             }`}
             type="text"
@@ -46,7 +57,7 @@ const Contact = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <input
             id="Email"
-            className={`w-full p-2 border-2 rounded-md ${
+            className={`w-full p-2 border-2 rounded-md bg-slate-300 ${
               errors.email && "border-red-400"
             }`}
             type="email"
@@ -64,7 +75,7 @@ const Contact = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <textarea
             id="Message"
-            className={`w-full p-2 border-2 rounded-md resize-none ${
+            className={`w-full p-2 border-2 rounded-md resize-none bg-slate-300 ${
               errors.message && "border-red-400"
             }`}
             {...register("message", { required: true, minLength: 4 })}
@@ -80,13 +91,15 @@ const Contact = forwardRef<HTMLDivElement>((_, ref) => {
             </a>
           </Text>
           <input
+            disabled={loading || failed || success}
             type="submit"
-            className="px-4 py-2 rounded-md bg-slate-300 dark:bg-slate-700"
+            className="px-4 py-2 text-black transition-all rounded-md cursor-pointer disabled:cursor-not-allowed bg-slate-400 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 dark:text-white"
           />
         </div>
       </form>
+      <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
     </div>
   )
-})
+}
 
 export default Contact

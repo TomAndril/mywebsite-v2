@@ -43,6 +43,7 @@ const PageLinks: React.FC = () => {
         behavior: "smooth",
       })
     }
+    setIsMenuOpen((prev) => !prev)
   }
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)

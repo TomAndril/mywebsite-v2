@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
           </div>
           <input
             id="Name"
-            className={`w-full p-2 border-2 rounded-md bg-slate-300 ${
+            className={`w-full p-2 border-2 rounded-md bg-slate-300 text-black ${
               errors.name && "border-red-400"
             }`}
             type="text"
@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
           </div>
           <input
             id="Email"
-            className={`w-full p-2 border-2 rounded-md bg-slate-300 ${
+            className={`w-full p-2 border-2 rounded-md bg-slate-300 text-black ${
               errors.email && "border-red-400"
             }`}
             type="email"
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
           </div>
           <textarea
             id="Message"
-            className={`w-full p-2 border-2 rounded-md resize-none bg-slate-300 ${
+            className={`w-full p-2 border-2 rounded-md resize-none bg-slate-300 text-black ${
               errors.message && "border-red-400"
             }`}
             {...register("message", { required: true, minLength: 4 })}

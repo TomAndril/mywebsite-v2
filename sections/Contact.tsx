@@ -19,7 +19,7 @@ const Contact = forwardRef<HTMLDivElement>((_, ref) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="my-4">
           <div className="flex items-center justify-between">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="Name">Name</label>
             {errors.name && (
               <Text variant="span" className="text-red-400 dark:text-red-400">
                 Name Required

@@ -11,9 +11,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      height: {
-        heroHeight: "calc(100vh - 12rem - 5rem)",
-      },
+      minHeight: {
+        sectionHeight: "calc(40vh - 12rem - 8rem)",
+        heroHeight: "calc(100vh - 14rem - 5rem)",
+      }
     },
   },
   variants: {},

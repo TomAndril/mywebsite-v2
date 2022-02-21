@@ -10,19 +10,19 @@ import {
 interface ISocialLink {
   Component: Icon
   url: string
-  label: string;
+  label: string
 }
 
 const socialLinks: ISocialLink[] = [
   {
     Component: Github,
     url: "https://github.com/TomAndril",
-    label: 'Github Profile'
+    label: "Github Profile",
   },
   {
     Component: Linkedin,
     url: "https://www.linkedin.com/in/tominasweb/",
-    label: 'Linkedin Profile'
+    label: "Linkedin Profile",
   },
 ]
 
@@ -36,14 +36,18 @@ const SocialLinks: React.FC = () => {
   return (
     <ul className="flex items-center justify-center text-black dark:text-white">
       {socialLinks.map((l) => (
-        <li
+        <a
           key={l.url}
+          href={l.url}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={l.label}
           className="p-3 mr-2 rounded cursor-pointer md:ml-2 bg-gradient-to-tr from-cyan-500 to-blue-500"
         >
-          <a target="_blank" href={l.url} rel="noreferrer" aria-label={l.label}>
+          <li>
             <l.Component {...iconProps} />
-          </a>
-        </li>
+          </li>
+        </a>
       ))}
       <li
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}

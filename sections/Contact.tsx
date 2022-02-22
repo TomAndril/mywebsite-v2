@@ -3,6 +3,7 @@ import Text from "../components/Text"
 import { useForm } from "react-hook-form"
 import useEmail from "../hooks/useEmail"
 import { Toaster } from "react-hot-toast"
+import { useEffect } from "react"
 
 interface IInputTypes {
   name: string
@@ -15,6 +16,7 @@ const Contact: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IInputTypes>()
 
   const { sendEmail, status } = useEmail()
@@ -22,8 +24,15 @@ const Contact: React.FC = () => {
 
   const onSubmit = (data: IInputTypes) => sendEmail(data)
 
+  useEffect(() => {
+    if (success) {
+      reset()
+    }
+  }, [success, reset])
+
   return (
     <div className="mt-24" id="#contact">
+      <button onClick={() => reset()}>test</button>
       <Text variant="h3" className="my-4 text-4xl font-medium">
         Contact Me
       </Text>
@@ -38,8 +47,9 @@ const Contact: React.FC = () => {
             )}
           </div>
           <input
+            disabled={loading || success}
             id="Name"
-            className={`w-full p-2 border-2 rounded-md bg-slate-300 text-black ${
+            className={`w-full p-2 border-2 rounded-md bg-slate-300 text-black disabled:cursor-not-allowed ${
               errors.name && "border-red-400"
             }`}
             type="text"
@@ -56,8 +66,9 @@ const Contact: React.FC = () => {
             )}
           </div>
           <input
+            disabled={loading || success}
             id="Email"
-            className={`w-full p-2 border-2 rounded-md bg-slate-300 text-black ${
+            className={`w-full p-2 border-2 rounded-md bg-slate-300 text-black disabled:cursor-not-allowed ${
               errors.email && "border-red-400"
             }`}
             type="email"
@@ -74,8 +85,9 @@ const Contact: React.FC = () => {
             )}
           </div>
           <textarea
+            disabled={loading || success}
             id="Message"
-            className={`w-full p-2 border-2 rounded-md resize-none bg-slate-300 text-black ${
+            className={`w-full p-2 border-2 rounded-md resize-none bg-slate-300 text-black disabled:cursor-not-allowed ${
               errors.message && "border-red-400"
             }`}
             {...register("message", { required: true, minLength: 4 })}

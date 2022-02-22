@@ -17,7 +17,7 @@ const Projects = () => {
           githubUrl="https://github.com/TomAndril/local-video-tracker"
         />
         <ProjectCard
-          title="TBOI Web Scrapper"
+          title="TBOI Web Scraper"
           description="Rest API that scrap for The Binding of Isaac videogame websites and returns a JSON with those in-game items."
           githubUrl="https://github.com/TomAndril/tboi-express-cheerio"
         />

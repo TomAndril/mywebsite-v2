@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { NextPage } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import BaseLayout from "../components/BaseLayout"
 import Text from "../components/Text"
@@ -14,6 +15,17 @@ const About: NextPage = () => {
         <Text variant="h1" className="my-4 text-4xl font-medium">
           About Me
         </Text>
+
+        <div className="flex justify-start pb-4 greyscale">
+          <Image
+            src="/images/aboutme.jpg"
+            width={600}
+            height={400}
+            alt="Me"
+            className="rounded-xl grayscale"
+          />
+        </div>
+
         <Text variant="p" className="text-lg leading-normal">
           Hello, I am Tomás! I'm a programmer from Argentina based in Malmö,
           Sweden. I truly adore building responsive, scalable and performant

@@ -72,8 +72,18 @@ const PageLinks: React.FC = () => {
           </li>
         ))}
       </ul>
-      <div className="relative flex items-center justify-center md:hidden">
-        <Hamburger size={16} onToggle={handleToggle} toggled={isMenuOpen} />
+      <div className="flex items-center justify-center md:hidden">
+        <div className="absolute -left-4">
+          <Hamburger
+            size={18}
+            onToggle={handleToggle}
+            toggled={isMenuOpen}
+            distance="lg"
+            direction="right"
+            label="Show Menu"
+            rounded
+          />
+        </div>
         <div
           className={`${
             isMenuOpen ? "flex" : "hidden"

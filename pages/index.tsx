@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <BaseLayout
       title="Tomas Nasjleti - Web Developer"
-      description="Tomas Nasjleti Website"
+      description="Tomas Nasjleti Personal Website. Here you can find contact information, his personal coding projects and a blog to check out the latest trends in programming."
     >
       <Hero />
       <MySkills />

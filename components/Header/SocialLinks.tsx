@@ -36,22 +36,21 @@ const SocialLinks: React.FC = () => {
   return (
     <ul className="flex items-center justify-center text-black dark:text-white">
       {socialLinks.map((l) => (
-        <a
-          key={l.url}
-          href={l.url}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={l.label}
-          className="p-3 mr-2 rounded cursor-pointer md:ml-2 bg-gradient-to-tr from-cyan-500 to-blue-500"
-        >
-          <li>
+        <li key={l.url}>
+          <a
+            href={l.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={l.label}
+            className="flex p-3 mr-2 rounded cursor-pointer md:ml-2 bg-gradient-to-tr from-cyan-500 to-blue-500"
+          >
             <l.Component {...iconProps} />
-          </li>
-        </a>
+          </a>
+        </li>
       ))}
       <li
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="p-2 ml-2 rounded cursor-pointer"
+        className="p-2 rounded cursor-pointer"
       >
         <div className="dark:hidden">
           <MoonFill {...iconProps} />

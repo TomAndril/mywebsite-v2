@@ -32,7 +32,6 @@ const Contact: React.FC = () => {
 
   return (
     <div className="mt-24" id="#contact">
-      <button onClick={() => reset()}>test</button>
       <Text variant="h3" className="my-4 text-4xl font-medium">
         Contact Me
       </Text>

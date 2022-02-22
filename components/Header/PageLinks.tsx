@@ -63,7 +63,7 @@ const PageLinks: React.FC = () => {
                 className={`${
                   route === l.url
                     ? `font-bold bg-slate-300 dark:bg-slate-800`
-                    : `hover:bg-slate-200 hover:dark:bg-slate-700 transition-all`
+                    : `hover:bg-slate-200 hover:dark:bg-slate-700 transition-all hover:shadow`
                 } text-md px-4 py-2 mr-2 rounded-lg`}
               >
                 {l.title}

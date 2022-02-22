@@ -42,7 +42,7 @@ const SocialLinks: React.FC = () => {
             target="_blank"
             rel="noreferrer"
             aria-label={l.label}
-            className="flex p-3 mr-2 rounded cursor-pointer md:ml-2 bg-gradient-to-tr from-cyan-500 to-blue-500"
+            className="flex p-3 mr-2 transition-all duration-500 rounded md:ml-2 bg-gradient-to-tr from-cyan-500 to-blue-500 hover:shadow-lg"
           >
             <l.Component {...iconProps} />
           </a>

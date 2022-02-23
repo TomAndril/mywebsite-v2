@@ -74,7 +74,7 @@ const PageLinks: React.FC = () => {
         ))}
       </ul>
       <div className="flex items-center justify-center md:hidden">
-        <div className="absolute -left-[15px]">
+        <div className="absolute -left-[15px] text-black dark:text-white">
           <Hamburger
             size={18}
             onToggle={handleToggle}
@@ -88,7 +88,7 @@ const PageLinks: React.FC = () => {
         <div
           className={`${
             isMenuOpen ? "flex" : "hidden"
-          } transition-all absolute top-0 left-0 bg-red-400 my-16 w-screen -ml-8 text-black dark:text-white`}
+          } transition-all absolute top-0 left-0 my-16 w-screen -ml-8 text-black dark:text-white`}
         >
           <ul className="flex flex-col items-center justify-center w-full bg-white border-b dark:bg-slate-900 dark:border-b-slate-800">
             {pageLinks.map((l) => (

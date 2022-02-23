@@ -74,7 +74,7 @@ const PageLinks: React.FC = () => {
         ))}
       </ul>
       <div className="flex items-center justify-center md:hidden">
-        <div className="absolute -left-4">
+        <div className="absolute -left-[15px]">
           <Hamburger
             size={18}
             onToggle={handleToggle}

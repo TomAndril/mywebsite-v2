@@ -18,16 +18,16 @@ const pageLinks: IPageLinks[] = [
     url: "/about",
   },
   {
+    url: "/blog",
+    title: "Blog",
+  },
+  {
     title: "Projects",
     url: "/#projects",
   },
   {
     title: "Contact",
     url: "/#contact",
-  },
-  {
-    url: "/blog",
-    title: "Blog",
   },
 ]
 
@@ -41,6 +41,7 @@ const PageLinks: React.FC = () => {
       const destination = document.getElementById(hrefID)
       destination?.scrollIntoView({
         behavior: "smooth",
+        block: "center",
       })
     }
     setIsMenuOpen((prev) => !prev)

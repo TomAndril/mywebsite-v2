@@ -11,7 +11,7 @@ const BaseLayout: React.FC<Props> = ({ children, description, title }) => {
   return (
     <>
       <CustomHead title={title} description={description} />
-      <div className="max-w-4xl px-8 m-auto lg:px-0">
+      <div className="max-w-4xl px-4 m-auto lg:px-0">
         <main>
           <Header />
           {children}

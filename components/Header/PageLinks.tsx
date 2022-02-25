@@ -90,7 +90,7 @@ const PageLinks: React.FC = () => {
             isMenuOpen ? "flex" : "hidden"
           } transition-all absolute top-0 left-0 my-16 w-screen -ml-8 text-black dark:text-white`}
         >
-          <ul className="flex flex-col items-center justify-center w-full overflow-scroll bg-white border-b dark:bg-slate-900 dark:border-b-slate-800">
+          <ul className="flex flex-col items-center justify-center w-full bg-white border-b dark:bg-slate-900 dark:border-b-slate-800">
             {pageLinks.map((l) => (
               <li key={l.url} className="my-6">
                 <Link href={l.url}>

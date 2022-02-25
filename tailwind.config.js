@@ -12,8 +12,20 @@ module.exports = {
         heroHeight: "calc(100vh - 14rem - 5rem)",
       },
       animation: {
-        'spin-slow': 'spin 3s linear infinite',
-      }
+        hero: "hero 10s ease infinite",
+      },
+      keyframes: {
+        hero: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+      },
     },
   },
 }

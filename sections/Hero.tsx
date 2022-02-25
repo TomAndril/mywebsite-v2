@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         className="mt-4 text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl"
       >
         And I'm a <br className="block sm:hidden" />
-        <span className="font-extrabold text-transparent bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text">
+        <span className="font-extrabold text-transparent bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text animate-hero">
           Web Developer.
         </span>
       </Text>

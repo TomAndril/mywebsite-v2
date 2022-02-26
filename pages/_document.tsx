@@ -17,9 +17,10 @@ class Doc extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preload" href="https://fonts.googleapis.com" />
+          <link rel="preload" href="https://fonts.googleapis.com" as="font" />
           <link
             rel="preload"
+            as="font"
             href="https://fonts.gstatic.com"
             crossOrigin="true"
           />
@@ -35,7 +36,11 @@ class Doc extends Document {
           />
 
           <link rel="manifest" href="/manifest.json" />
-          <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico"></link>
+          <link
+            rel="icon"
+            type="image/x-icon"
+            href="/favicons/favicon.ico"
+          ></link>
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -56,7 +61,6 @@ class Doc extends Document {
           <meta name="msapplication-TileColor" content="#161b22" />
           <meta name="theme-color" content="#161b22" />
           <meta name="author" content="Tomas Nasjleti" />
-          
         </Head>
         <body className="overflow-x-hidden transition-all duration-300 bg-white transi dark:bg-slate-900">
           <Main />

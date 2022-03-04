@@ -9,8 +9,8 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = ({ description, githubUrl, title }) => {
   return (
-    <Atropos shadow={false} rotateXMax={5} rotateYMax={5}>
-      <div className="rounded bg-gradient-to-r p-[4px] from-cyan-500 to-blue-500 hover:shadow-md hover:transition-all">
+    <Atropos shadow={false} rotateXMax={5} rotateYMax={5} >
+      <div className="rounded bg-gradient-to-r p-[4px] from-cyan-500 to-blue-500 hover:shadow-md hover:transition-all h-full">
         <div className="flex flex-col justify-between h-full p-4 bg-white dark:bg-slate-900">
           <Text
             variant="h2"

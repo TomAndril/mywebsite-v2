@@ -12,14 +12,14 @@ const Projects = () => {
       </Text>
       <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2">
         <ProjectCard
-          title="Local Video Tracker"
-          description="Desktop tool to track local videos, such as courses or tv shows, to organize them by folders and keep track of your progression."
-          githubUrl="https://github.com/TomAndril/local-video-tracker"
+          title="This Website"
+          description="The website you're currently browsing 🧭. It serves as a portfolio site for me and my projects. Built with Next.js, ts and TailwindCSS. At lot about SEO, performance and optimization has been learned with this project."
+          githubUrl="https://github.com/TomAndril/mywebsite-v2"
         />
         <ProjectCard
-          title="TBOI Web Scraper"
-          description="Rest API that scrap for The Binding of Isaac videogame websites and returns a JSON with those in-game items."
-          githubUrl="https://github.com/TomAndril/tboi-express-cheerio"
+          title="Local Video Tracker"
+          description="Desktop tool to track local (downloaded) videos, such as courses or tv shows, to organize them by folders and keep track of your progression. Built with Electron.js, React.js, TS and others."
+          githubUrl="https://github.com/TomAndril/local-video-tracker"
         />
       </div>
     </div>

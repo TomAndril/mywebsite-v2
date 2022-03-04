@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       minHeight: {
         sectionHeight: "calc(50vh - 12rem - 8rem)",
-        heroHeight: "calc(100vh - 14rem - 5rem)",
+        heroHeight: "calc(90vh - 14rem - 5rem)",
       },
       animation: {
         hero: "hero 10s ease infinite",

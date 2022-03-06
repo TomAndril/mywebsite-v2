@@ -3,7 +3,7 @@ import Text from "../components/Text"
 
 const Hero: React.FC = () => {
   return (
-    <div className="mt-24 md:mt-36 min-h-heroHeight">
+    <div className="m-section">
       <Text
         variant="span"
         className="text-xl sm:text-2xl md:text-3xl lg:text-4xl"

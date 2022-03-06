@@ -11,7 +11,7 @@ const About: NextPage = () => {
       title="Tomas Nasjleti - About me"
       description="Information about me"
     >
-      <div className="mt-24 min-h-heroHeight">
+      <div className="m-section">
         <Text variant="h1" className="my-4 text-4xl font-medium">
           About Me
         </Text>

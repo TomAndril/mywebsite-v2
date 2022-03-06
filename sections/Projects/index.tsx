@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard"
 
 const Projects = () => {
   return (
-    <div className="mt-24 min-h-sectionHeight" id="#projects">
+    <div className="m-section" id="#projects">
       <Text
         variant="h3"
         className="text-4xl font-medium text-black dark:text-white"

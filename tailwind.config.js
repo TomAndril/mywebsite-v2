@@ -17,6 +17,9 @@ module.exports = {
       margin: {
         section: "calc(5vh + 5rem) 0",
       },
+      fontSize: {
+        xsm: "0.675rem",
+      },
       keyframes: {
         hero: {
           "0%, 100%": {

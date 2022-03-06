@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
   }, [success, reset])
 
   return (
-    <div className="mt-24" id="#contact">
+    <div className="m-section" id="#contact">
       <Text variant="h3" className="my-4 text-4xl font-medium">
         Contact Me
       </Text>
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
           <input
             disabled={loading || failed || success}
             type="submit"
-            className="px-4 py-2 text-black transition-all rounded-md cursor-pointer disabled:cursor-not-allowed bg-slate-400 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 dark:text-white"
+            className="px-4 py-2 font-medium transition-all rounded-md cursor-pointer text-slate-100 disabled:cursor-not-allowed bg-slate-500 dark:bg-slate-600 dark:text-white hover:bg-slate-600 dark:hover:bg-slate-500"
           />
         </div>
       </form>

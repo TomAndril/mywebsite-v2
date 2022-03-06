@@ -14,6 +14,9 @@ module.exports = {
       animation: {
         hero: "hero 10s ease infinite",
       },
+      margin: {
+        section: "calc(5vh + 5rem) 0",
+      },
       keyframes: {
         hero: {
           "0%, 100%": {

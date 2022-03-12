@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
         className="mt-8 text-md sm:text-lg md:text-xl lg:text-2xl"
       >
         I am an highly motivated programmer from Argentina based in Malmö,
-        Sweden. I'm a self-taught full-stack Developer and I've been programming
+        Sweden. As a full-stack Developer I've been programming
         for more than 4 years and still learning new technologies every week.
         Mostly focused on front-end related technologies but my passion is
         taking me to Mobile, Desktop and beyond 🚀. I currently work at{" "}

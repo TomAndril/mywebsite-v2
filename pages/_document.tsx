@@ -54,6 +54,9 @@ class Doc extends Document {
           <meta name="msapplication-TileColor" content="#161b22" />
           <meta name="theme-color" content="#161b22" />
           <meta name="author" content="Tomas Nasjleti" />
+          <meta property="og:title" content="Tomas Nasjleti Website" key="title" />
+          <meta property="og:description" content="Tomas Nasjleti personal website, information about him, blog posts and more" />
+          <meta property="og:image" content="/images/aboutme.jpg" />
         </Head>
         <body className="overflow-x-hidden transition-all duration-300 bg-white transi dark:bg-slate-900">
           <Main />

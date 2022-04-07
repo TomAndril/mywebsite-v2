@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/client": "^3.3.0",
     "@sendgrid/mail": "^7.6.1",
     "@tailwindcss/typography": "^0.5.2",
     "atropos": "^1.0.2",

@@ -1,0 +1,1 @@
+export const GET_ALL_POSTS_BY_DATE_DESC = `*[_type == "post"] | order(_createdAt desc)`

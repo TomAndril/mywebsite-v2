@@ -14,4 +14,5 @@ export interface IBlogPost {
   _createdAt: string
   _id: string
   _type: string
+  slug: { current: string; _type: string }
 }

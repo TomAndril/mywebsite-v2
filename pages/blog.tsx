@@ -1,20 +1,34 @@
-import { NextPage } from "next"
+import { GetStaticProps, NextPage } from "next"
 import BaseLayout from "../components/BaseLayout"
+import LatestPost from "../components/Blog/LatestPost"
 import Text from "../components/Text"
+import { getAllPosts } from "../lib/methods"
+import { IBlogPost } from "../types"
 
-const Blog: NextPage = () => {
+interface Props {
+  posts: IBlogPost[]
+}
+
+const Blog = ({ posts }: Props) => {
+  const latestPost = posts[0]
   return (
     <BaseLayout
       title="Tomas Nasjleti - Blog"
       description="Tomas Nasjleti personal blog"
     >
-      <div className="flex flex-col items-center justify-center min-h-heroHeight">
-        <Text className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-          Blog coming soon 👷
-        </Text>
-      </div>
+      <LatestPost post={latestPost} />
     </BaseLayout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getAllPosts()
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }
 
 export default Blog

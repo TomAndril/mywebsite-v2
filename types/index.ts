@@ -1,3 +1,5 @@
+import { PortableTextBlockComponent, PortableTextProps } from "@portabletext/react"
+
 export interface IBlogPost {
   title: string
   categories: {_key: string, _ref: string, _type: string}[]
@@ -6,7 +8,7 @@ export interface IBlogPost {
     _type: string
     asset: { _ref: string; _type: string }
   }
-  body: any
+  body: PortableTextProps['value']
   _updatedAt: string
   _createdAt: string
   _id: string

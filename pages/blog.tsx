@@ -1,22 +1,22 @@
-import { GetStaticProps, NextPage } from "next"
+import { GetStaticProps } from "next"
 import BaseLayout from "../components/BaseLayout"
 import LatestPost from "../components/Blog/LatestPost"
-import Text from "../components/Text"
-import { getAllPosts } from "../lib/methods"
+import { getAllPosts, getImageUrl } from "../lib/methods"
 import { IBlogPost } from "../types"
 
 interface Props {
   posts: IBlogPost[]
+  latestPostImage: string
 }
 
-const Blog = ({ posts }: Props) => {
+const Blog = ({ posts, latestPostImage }: Props) => {
   const latestPost = posts[0]
   return (
     <BaseLayout
       title="Tomas Nasjleti - Blog"
       description="Tomas Nasjleti personal blog"
     >
-      <LatestPost post={latestPost} />
+      <LatestPost post={latestPost} image={latestPostImage} />
     </BaseLayout>
   )
 }
@@ -24,9 +24,17 @@ const Blog = ({ posts }: Props) => {
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts()
 
+  let latestPostImage = ""
+
+  if (posts && posts.length > 0) {
+    const latestPost = posts[0]
+    latestPostImage = getImageUrl(latestPost.mainImage)
+  }
+
   return {
     props: {
       posts,
+      latestPostImage,
     },
   }
 }

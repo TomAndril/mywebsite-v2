@@ -1,14 +1,15 @@
-import { PortableTextBlockComponent, PortableTextProps } from "@portabletext/react"
+import { PortableTextProps } from "@portabletext/react"
 
 export interface IBlogPost {
   title: string
-  categories: {_key: string, _ref: string, _type: string}[]
-  author: {_ref: string, _type: string}
+  previewDescription: string
+  categories: { _key: string; _ref: string; _type: string }[]
+  author: { _ref: string; _type: string }
   mainImage: {
     _type: string
     asset: { _ref: string; _type: string }
   }
-  body: PortableTextProps['value']
+  body: PortableTextProps["value"]
   _updatedAt: string
   _createdAt: string
   _id: string

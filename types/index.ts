@@ -3,7 +3,7 @@ import { PortableTextProps } from "@portabletext/react"
 export interface IBlogPost {
   title: string
   previewDescription: string
-  categories: { _key: string; _ref: string; _type: string }[]
+  categories: string[]
   author: { _ref: string; _type: string }
   mainImage: {
     _type: string

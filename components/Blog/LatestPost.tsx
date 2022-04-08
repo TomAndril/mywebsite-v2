@@ -15,7 +15,7 @@ const imageConfig: Partial<ImageProps> = {
 }
 
 const LatestPost: React.FC<Props> = ({ post, image }) => {
-  const { title, previewDescription, slug } = post
+  const { title, previewDescription, slug, categories } = post
   return (
     <Link href={`/blog/${slug.current}`}>
       <a>
@@ -34,6 +34,17 @@ const LatestPost: React.FC<Props> = ({ post, image }) => {
               <Text variant="h3" className="text-lg font-semibold left-4">
                 {previewDescription}
               </Text>
+            </div>
+            <div className="absolute top-0 right-0 flex p-2">
+              {categories.map((cat, index) => (
+                <Text
+                  variant="span"
+                  key={index}
+                  className="px-4 py-2 ml-4 text-sm rounded shadow bg-slate-300 dark:bg-black"
+                >
+                  {cat}
+                </Text>
+              ))}
             </div>
           </>
         </article>

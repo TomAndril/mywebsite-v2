@@ -25,13 +25,16 @@ const LatestPost: React.FC<Props> = ({ post, image }) => {
             <header>
               <Text
                 variant="h2"
-                className="absolute text-6xl font-bold bottom-1/4 left-4 text-shadow-hero-blog dark:text-shadow-hero-blog-dark"
+                className="absolute text-2xl font-bold md:text-4xl lg:text-6xl bottom-1/2 md:bottom-1/4 left-4 text-shadow-hero-blog dark:text-shadow-hero-blog-dark"
               >
                 {title}
               </Text>
             </header>
-            <div className="absolute bg-slate-300 dark:bg-black border-b-2 border-blue-700 border-r-2 bottom-[6.5px] p-6 rounded-tr-lg">
-              <Text variant="h3" className="text-lg font-semibold left-4">
+            <div className="absolute bg-slate-300 dark:bg-black border-b-2 border-blue-700 border-r-2 bottom-[6.5px] p-4 rounded-tr-lg">
+              <Text
+                variant="h3"
+                className="text-sm font-semibold md:text-lg left-4"
+              >
                 {previewDescription}
               </Text>
             </div>

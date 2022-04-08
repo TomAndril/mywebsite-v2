@@ -16,7 +16,9 @@ const Blog = ({ posts, latestPostImage }: Props) => {
       title="Tomas Nasjleti - Blog"
       description="Tomas Nasjleti personal blog"
     >
-      <LatestPost post={latestPost} image={latestPostImage} />
+      <div className="m-section">
+        <LatestPost post={latestPost} image={latestPostImage} />
+      </div>
     </BaseLayout>
   )
 }

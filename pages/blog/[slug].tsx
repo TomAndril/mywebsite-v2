@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next"
 import BaseLayout from "../../components/BaseLayout"
+import { getPostBySlug } from "../../lib/methods"
 import { GET_POSTS_SLUGS, GET_POST_BY_SLUG } from "../../lib/queries"
 import sanityClient from "../../lib/sanity"
 import { IBlogPost } from "../../types"
@@ -19,11 +20,11 @@ interface Props {
 const BlogPost: React.FC<Props> = ({ post }) => {
   return (
     <BaseLayout
-      title={`${post.title} - Tomas Nasjleti`}
+      title={`${post.title} - Tomas Nasjleti - Blog`}
       description={post.previewDescription}
     >
       <div className="m-section">
-        <h1>Hola</h1>
+        <h1>{post.title}</h1>
       </div>
     </BaseLayout>
   )
@@ -31,7 +32,7 @@ const BlogPost: React.FC<Props> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { slug } = params
-  const post = await sanityClient.fetch(GET_POST_BY_SLUG, { slug })
+  const post = await getPostBySlug(slug)
   return {
     props: {
       post,

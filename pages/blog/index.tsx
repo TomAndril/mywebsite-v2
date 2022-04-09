@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next"
-import BaseLayout from "../components/BaseLayout"
-import LatestPost from "../components/Blog/LatestPost"
-import { getAllPosts, getImageUrl } from "../lib/methods"
-import { IBlogPost } from "../types"
+import BaseLayout from "../../components/BaseLayout"
+import LatestPost from "../../components/Blog/LatestPost"
+import { getAllPosts, getImageUrl } from "../../lib/methods"
+import { IBlogPost } from "../../types"
 
 interface Props {
   posts: IBlogPost[]

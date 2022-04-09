@@ -1,6 +1,10 @@
 import imageUrlBuilder from "@sanity/image-url"
 import { IBlogPost } from "../types"
-import { GET_ALL_POSTS_BY_DATE_DESC, GET_POST_BY_SLUG } from "./queries"
+import {
+  GET_ALL_POSTS_BY_DATE_DESC,
+  GET_POST_BY_SLUG,
+  GET_POSTS_SLUGS,
+} from "./queries"
 import sanityClient from "./sanity"
 
 export const getAllPosts = async () => {
@@ -17,6 +21,14 @@ export const getPostBySlug = async (slug: string) => {
   const post = await sanityClient.fetch<IBlogPost>(GET_POST_BY_SLUG, { slug })
   if (post) {
     return post
+  }
+  return []
+}
+
+export const getPostsSlugs = async () => {
+  const slugs = await sanityClient.fetch(GET_POSTS_SLUGS)
+  if (slugs && slugs?.length > 0) {
+    return slugs
   }
   return []
 }

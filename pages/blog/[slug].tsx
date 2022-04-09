@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next"
 import BaseLayout from "../../components/BaseLayout"
-import { getPostBySlug } from "../../lib/methods"
+import { getPostBySlug, getPostsSlugs } from "../../lib/methods"
 import { GET_POSTS_SLUGS, GET_POST_BY_SLUG } from "../../lib/queries"
 import sanityClient from "../../lib/sanity"
 import { IBlogPost } from "../../types"
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 }
 
 export const getStaticPaths = async () => {
-  const paths = await sanityClient.fetch(GET_POSTS_SLUGS)
+  const paths = await getPostsSlugs()
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
     fallback: true,

@@ -7,7 +7,7 @@ import {
 } from "./queries"
 import sanityClient from "./sanity"
 
-export const getAllPosts = async () => {
+export const getAllPosts = async (): Promise<Partial<IBlogPost[]>> => {
   const posts = await sanityClient.fetch<IBlogPost[]>(
     GET_ALL_POSTS_BY_DATE_DESC
   )
@@ -17,15 +17,15 @@ export const getAllPosts = async () => {
   return posts
 }
 
-export const getPostBySlug = async (slug: string) => {
+export const getPostBySlug = async (slug: string): Promise<IBlogPost | null> => {
   const post = await sanityClient.fetch<IBlogPost>(GET_POST_BY_SLUG, { slug })
   if (post) {
     return post
   }
-  return []
+  return null
 }
 
-export const getPostsSlugs = async () => {
+export const getPostsSlugs = async (): Promise<string[]> => {
   const slugs = await sanityClient.fetch(GET_POSTS_SLUGS)
   if (slugs && slugs?.length > 0) {
     return slugs
@@ -36,6 +36,6 @@ export const getPostsSlugs = async () => {
 // TO GET IMAGES FROM SANITY
 const builder = imageUrlBuilder(sanityClient)
 
-export const getImageUrl = (ref: IBlogPost["mainImage"]) => {
+export const getImageUrl = (ref: IBlogPost["mainImage"]): string => {
   return builder.image(ref).url()
 }

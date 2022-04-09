@@ -1,17 +1,10 @@
-import Image, { ImageProps } from "next/image"
 import Link from "next/link"
 import { IBlogPost } from "../../types"
 import Text from "../Text"
+import CustomImage from "./CustomImage"
 interface Props {
   post: IBlogPost
   image: string
-}
-
-const imageConfig: Partial<ImageProps> = {
-  width: 1024,
-  height: 576,
-  priority: true,
-  quality: 50,
 }
 
 const LatestPost: React.FC<Props> = ({ post, image }) => {
@@ -21,7 +14,7 @@ const LatestPost: React.FC<Props> = ({ post, image }) => {
       <a>
         <article className="relative">
           <>
-            <Image {...imageConfig} src={image} alt={post.title} />
+            <CustomImage src={image} alt={post.title} />
             <header>
               <Text
                 variant="h2"

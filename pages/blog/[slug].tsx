@@ -1,8 +1,7 @@
 import { GetStaticProps } from "next"
 import BaseLayout from "../../components/BaseLayout"
-import { getPostBySlug, getPostsSlugs } from "../../lib/methods"
-import { GET_POSTS_SLUGS, GET_POST_BY_SLUG } from "../../lib/queries"
-import sanityClient from "../../lib/sanity"
+import CustomImage from "../../components/Blog/CustomImage"
+import { getImageUrl, getPostBySlug, getPostsSlugs } from "../../lib/methods"
 import { IBlogPost } from "../../types"
 
 interface Props {
@@ -15,16 +14,17 @@ interface Props {
     | "title"
     | "previewDescription"
   >
+  imageUrl: string
 }
 
-const BlogPost: React.FC<Props> = ({ post }) => {
+const BlogPost: React.FC<Props> = ({ post, imageUrl }) => {
   return (
     <BaseLayout
       title={`${post.title} - Tomas Nasjleti - Blog`}
       description={post.previewDescription}
     >
       <div className="m-section">
-        <h1>{post.title}</h1>
+        <CustomImage src={imageUrl} alt={post.title} />
       </div>
     </BaseLayout>
   )
@@ -33,9 +33,14 @@ const BlogPost: React.FC<Props> = ({ post }) => {
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { slug } = params
   const post = await getPostBySlug(slug)
+  let imageUrl = ""
+  if (post) {
+    imageUrl = await getImageUrl(post.mainImage)
+  }
   return {
     props: {
       post,
+      imageUrl,
     },
   }
 }

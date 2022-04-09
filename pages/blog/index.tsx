@@ -30,7 +30,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
   if (posts && posts.length > 0) {
     const latestPost = posts[0]
-    latestPostImage = getImageUrl(latestPost.mainImage)
+    if (latestPost) {
+      latestPostImage = getImageUrl(latestPost.mainImage)
+    }
   }
 
   return {

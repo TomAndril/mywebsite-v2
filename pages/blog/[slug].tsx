@@ -5,7 +5,15 @@ import sanityClient from "../../lib/sanity"
 import { IBlogPost } from "../../types"
 
 interface Props {
-  post: IBlogPost
+  post: Pick<
+    IBlogPost,
+    | "_createdAt"
+    | "body"
+    | "categories"
+    | "mainImage"
+    | "title"
+    | "previewDescription"
+  >
 }
 
 const BlogPost: React.FC<Props> = ({ post }) => {
@@ -14,7 +22,7 @@ const BlogPost: React.FC<Props> = ({ post }) => {
       title={`${post.title} - Tomas Nasjleti`}
       description={post.previewDescription}
     >
-      <div>
+      <div className="m-section">
         <h1>Hola</h1>
       </div>
     </BaseLayout>

@@ -27,6 +27,8 @@ const BlogPost: React.FC<Props> = ({ post, imageUrl }) => {
     addSuffix: true,
   })
 
+  console.log(post)
+
   return (
     <BaseLayout
       title={`${title} - Tomas Nasjleti - Blog`}
@@ -86,7 +88,7 @@ export const getStaticPaths = async () => {
   const paths = await getPostsSlugs()
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   }
 }
 

@@ -26,7 +26,7 @@ const About: NextPage = () => {
           />
         </div>
 
-        <Text variant="p" className="text-lg leading-normal">
+        <Text variant="p" className="text-sm leading-normal md:text-base">
           Hello, I am Tomás! I'm a programmer from Argentina based in Malmö,
           Sweden. I truly adore building responsive, scalable and performant
           software. I'm also a big fan of open-source!. When I have free time I
@@ -41,19 +41,19 @@ const About: NextPage = () => {
           </a>
           .
         </Text>
-        <Text variant="p" className="mt-8 text-lg leading-normal">
+        <Text variant="p" className="mt-8 text-sm leading-normal md:text-base">
           I have been developing web, mobile and desktop applications for over 4
           years. And I love it! I learn new things pretty much everyday!
           Currently my main focus is on Frontend web development, specifically
           working with React, Typescript, Next.js, CSS and much more!.
         </Text>
-        <Text variant="p" className="mt-8 text-lg leading-normal">
+        <Text variant="p" className="mt-8 text-sm leading-normal md:text-base">
           When I'm not programming I like to play videogames 🎮, go for a run
           🏃‍♂️, go to the gym 🏋️‍♂️, play paddle 🎾 and travel to somewhere new ✈️.
         </Text>
         <Text
           variant="p"
-          className="mt-8 leading-normal text-md text-slate-600 dark:text-slate-300"
+          className="mt-8 text-xs leading-normal md:text-sm text-slate-600 dark:text-slate-300"
         >
           PS: if there is something you'd like to know about me, don't hesitate
           to{" "}

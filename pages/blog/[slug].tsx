@@ -17,16 +17,32 @@ interface Props {
     | "mainImage"
     | "title"
     | "previewDescription"
+    | "_updatedAt"
   >
   imageUrl: string
 }
 
 const BlogPost: React.FC<Props> = ({ post, imageUrl }) => {
-  const { _createdAt, body, categories, previewDescription, title } = post
+  const {
+    _createdAt,
+    body,
+    categories,
+    previewDescription,
+    title,
+    _updatedAt,
+  } = post
 
   const formattedDate = formatDistance(new Date(_createdAt), new Date(), {
     addSuffix: true,
   })
+
+  const formattedUpdatedDate = formatDistance(
+    new Date(_updatedAt),
+    new Date(),
+    {
+      addSuffix: true,
+    }
+  )
 
   return (
     <BaseLayout
@@ -45,6 +61,9 @@ const BlogPost: React.FC<Props> = ({ post, imageUrl }) => {
         <Text variant="span" className="text-sm md:text-md lg:text-lg">
           {formattedDate}
         </Text>
+        {formattedUpdatedDate && (
+          <Text variant="span" className="ml-2 text-sm md:text-md lg:text-lg">- updated {formattedUpdatedDate}</Text>
+        )}
         {categories.map((cat) => (
           <Text
             key={cat}

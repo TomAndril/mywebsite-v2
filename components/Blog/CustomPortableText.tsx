@@ -1,19 +1,67 @@
 import { PortableText, PortableTextReactComponents } from "@portabletext/react"
+import { blogEntryImgBuilder, getImageUrl } from "../../lib/methods"
+import imageUrlBuilder from "@sanity/image-url"
 import { IBlogPost } from "../../types"
+import Text from "../Text"
+import { sanityConfig } from "../../lib/sanity"
+import CustomImage from "./CustomImage"
 
 interface Props {
   body: IBlogPost["body"]
 }
 
 const components: Partial<PortableTextReactComponents> = {
-    block: {
-      h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
-      h2: ({ children }) => <h2 className="text-xl">{children}</h2>,
-    }
+  block: {
+    h1: ({ children }) => (
+      <Text variant="h1" className="py-2 text-2xl md:text-3xl lg:text-4xl">
+        {children}
+      </Text>
+    ),
+    h2: ({ children }) => (
+      <Text variant="h2" className="py-2 text-xl md:text-2xl lg:text-3xl">
+        {children}
+      </Text>
+    ),
+    h3: ({ children }) => (
+      <Text variant="h3" className="py-2 text-lg md:text-xl lg:text-2xl">
+        {children}
+      </Text>
+    ),
+    h4: ({ children }) => (
+      <Text variant="h4" className="py-2 text-md md:text-lg lg:text-xl">
+        {children}
+      </Text>
+    ),
+    normal: ({ children }) => (
+      <Text variant="p" className="py-2 text-md md:text-lg lg:text-xl">
+        {children}
+      </Text>
+    ),
+  },
+  types: {
+    image: ({ value }) => {
+      const imageUrl = getImageUrl(value)
+      return (
+        <CustomImage src={imageUrl} alt={imageUrl} className="rounded-lg" />
+      )
+    },
+  },
+  marks: {
+    link: ({ value, children }) => (
+      <a
+        href={value.href}
+        target="_blank"
+        rel="noreferrer"
+        className="font-semibold underline underline-offset-1"
+      >
+        {children}
+      </a>
+    ),
+  },
 }
 
 const CustomPortableText: React.FC<Props> = ({ body }) => {
-    return <PortableText value={body} components={components} />
+  return <PortableText value={body} components={components} />
 }
 
 export default CustomPortableText

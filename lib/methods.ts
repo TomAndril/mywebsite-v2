@@ -5,7 +5,7 @@ import {
   GET_POST_BY_SLUG,
   GET_POSTS_SLUGS,
 } from "./queries"
-import sanityClient from "./sanity"
+import sanityClient, { sanityConfig } from "./sanity"
 
 export const getAllPosts = async (): Promise<Partial<IBlogPost[]>> => {
   const posts = await sanityClient.fetch<IBlogPost[]>(
@@ -39,3 +39,5 @@ const builder = imageUrlBuilder(sanityClient)
 export const getImageUrl = (ref: IBlogPost["mainImage"]): string => {
   return builder.image(ref).url()
 }
+
+export const blogEntryImgBuilder = (ref: IBlogPost['mainImage']) => imageUrlBuilder({clientConfig: sanityConfig}).image(ref)

@@ -10,10 +10,11 @@ const imageConfig: Partial<ImageProps> = {
 interface Props {
   src: string
   alt: string
+  className?: string
 }
 
-const CustomImage: React.FC<Props> = ({ alt, src }) => (
-  <Image {...imageConfig} src={src} alt={alt} />
+const CustomImage: React.FC<Props> = ({ alt, src, className = "" }) => (
+  <Image {...imageConfig} src={src} alt={alt} className={className} />
 )
 
 export default CustomImage

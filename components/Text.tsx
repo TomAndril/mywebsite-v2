@@ -1,5 +1,5 @@
 interface ITextProps {
-  variant?: "h1" | "h2" | "h3" | "span" | "p"
+  variant?: "h1" | "h2" | "h3" | "h4" | "span" | "p"
   className?: string
 }
 

@@ -1,8 +1,11 @@
 import { GetStaticProps } from "next"
 import BaseLayout from "../../components/BaseLayout"
 import CustomImage from "../../components/Blog/CustomImage"
+import Text from "../../components/Text"
 import { getImageUrl, getPostBySlug, getPostsSlugs } from "../../lib/methods"
 import { IBlogPost } from "../../types"
+import { formatDistance } from "date-fns"
+import CustomPortableText from "../../components/Blog/CustomPortableText"
 
 interface Props {
   post: Pick<
@@ -18,13 +21,47 @@ interface Props {
 }
 
 const BlogPost: React.FC<Props> = ({ post, imageUrl }) => {
+  const { _createdAt, body, categories, previewDescription, title } = post
+
+  const formattedDate = formatDistance(new Date(_createdAt), new Date(), {
+    addSuffix: true,
+  })
+
   return (
     <BaseLayout
-      title={`${post.title} - Tomas Nasjleti - Blog`}
-      description={post.previewDescription}
+      title={`${title} - Tomas Nasjleti - Blog`}
+      description={previewDescription}
     >
       <div className="m-section">
-        <CustomImage src={imageUrl} alt={post.title} />
+        <CustomImage src={imageUrl} alt={title} className="rounded-lg" />
+        <Text
+          variant="h1"
+          className="my-6 text-3xl font-semibold tracking-wide md:text-4xl lg:text-6xl"
+        >
+          {title}
+        </Text>
+        {/* POST DATA (DATE, CATEGORIES) */}
+        <div className="pb-10 border-b-2">
+          <Text
+            variant="span"
+            className="text-sm underline md:text-md lg:text-lg underline-offset-1"
+          >
+            {formattedDate}
+          </Text>
+          {categories.map((cat) => (
+            <Text
+              key={cat}
+              variant="span"
+              className="px-4 py-2 ml-4 text-sm font-medium rounded bg-slate-300 dark:bg-black md:text-md lg:text-lg"
+            >
+              {cat}
+            </Text>
+          ))}
+        </div>
+        {/* BODY */}
+        <div className="mt-10">
+          <CustomPortableText body={body} />
+        </div>
       </div>
     </BaseLayout>
   )
@@ -35,7 +72,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const post = await getPostBySlug(slug)
   let imageUrl = ""
   if (post) {
-    imageUrl = await getImageUrl(post.mainImage)
+    imageUrl = getImageUrl(post.mainImage)
   }
   return {
     props: {

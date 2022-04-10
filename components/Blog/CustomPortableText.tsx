@@ -70,8 +70,8 @@ const components: Partial<PortableTextReactComponents> = {
   },
 }
 
-const CustomPortableText: React.FC<Props> = ({ body }) => {
-  return <PortableText value={body} components={components} />
-}
+const CustomPortableText: React.FC<Props> = ({ body }) => (
+  <PortableText value={body} components={components} />
+)
 
 export default CustomPortableText

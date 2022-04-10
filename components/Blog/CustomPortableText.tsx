@@ -1,10 +1,9 @@
 import { PortableText, PortableTextReactComponents } from "@portabletext/react"
-import { blogEntryImgBuilder, getImageUrl } from "../../lib/methods"
-import imageUrlBuilder from "@sanity/image-url"
+import { getImageUrl } from "../../lib/methods"
 import { IBlogPost } from "../../types"
 import Text from "../Text"
-import { sanityConfig } from "../../lib/sanity"
 import CustomImage from "./CustomImage"
+import { CodeBlock, dracula } from "react-code-blocks"
 
 interface Props {
   body: IBlogPost["body"]
@@ -43,6 +42,17 @@ const components: Partial<PortableTextReactComponents> = {
       const imageUrl = getImageUrl(value)
       return (
         <CustomImage src={imageUrl} alt={imageUrl} className="rounded-lg" />
+      )
+    },
+    code: ({ value }) => {
+      const { code, language } = value
+      return (
+        <CodeBlock
+          text={code}
+          language={language}
+          showLineNumbers
+          theme={dracula}
+        />
       )
     },
   },

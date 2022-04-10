@@ -70,9 +70,9 @@ const components: Partial<PortableTextReactComponents> = {
   },
   listItem: {
     bullet: ({ children }) => (
-      <li className="py-1 ml-8 list-disc text-md md:text-lg lg:text-xl">
+      <Text variant="li" className="py-1 ml-8 list-disc text-md md:text-lg lg:text-xl">
         {children}
-      </li>
+      </Text>
     ),
   },
 }

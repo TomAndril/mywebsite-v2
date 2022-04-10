@@ -42,23 +42,19 @@ const BlogPost: React.FC<Props> = ({ post, imageUrl }) => {
           {title}
         </Text>
         {/* POST DATA (DATE, CATEGORIES) */}
-        <div className="pb-10 border-b-2">
+        <Text variant="span" className="text-sm md:text-md lg:text-lg">
+          {formattedDate}
+        </Text>
+        {categories.map((cat) => (
           <Text
+            key={cat}
             variant="span"
-            className="text-sm underline md:text-md lg:text-lg underline-offset-1"
+            className="px-4 py-2 ml-4 text-sm font-medium rounded bg-slate-300 dark:bg-black md:text-md lg:text-lg"
           >
-            {formattedDate}
+            {cat}
           </Text>
-          {categories.map((cat) => (
-            <Text
-              key={cat}
-              variant="span"
-              className="px-4 py-2 ml-4 text-sm font-medium rounded bg-slate-300 dark:bg-black md:text-md lg:text-lg"
-            >
-              {cat}
-            </Text>
-          ))}
-        </div>
+        ))}
+        <hr className="my-16" />
         {/* BODY */}
         <div className="mt-10">
           <CustomPortableText body={body} />

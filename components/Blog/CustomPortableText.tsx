@@ -68,6 +68,13 @@ const components: Partial<PortableTextReactComponents> = {
       </a>
     ),
   },
+  listItem: {
+    bullet: ({ children }) => (
+      <li className="py-1 ml-8 list-disc text-md md:text-lg lg:text-xl">
+        {children}
+      </li>
+    ),
+  },
 }
 
 const CustomPortableText: React.FC<Props> = ({ body }) => (

@@ -28,8 +28,6 @@ const BlogPost: React.FC<Props> = ({ post, imageUrl }) => {
     addSuffix: true,
   })
 
-  console.log(post)
-
   return (
     <BaseLayout
       title={`${title} - Tomas Nasjleti - Blog`}

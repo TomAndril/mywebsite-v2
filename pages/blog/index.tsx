@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next"
 import BaseLayout from "../../components/BaseLayout"
 import LatestPost from "../../components/Blog/LatestPost"
+import { BLOG_REVALIDATION_IN_SECONDS } from "../../constants"
 import { getAllPosts, getImageUrl } from "../../lib/methods"
 import { IBlogPost } from "../../types"
 
@@ -40,6 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
       posts,
       latestPostImage,
     },
+    revalidate: BLOG_REVALIDATION_IN_SECONDS
   }
 }
 

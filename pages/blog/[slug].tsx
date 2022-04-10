@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 import BaseLayout from "../../components/BaseLayout"
 import CustomImage from "../../components/Blog/CustomImage"
 import Text from "../../components/Text"
@@ -6,6 +6,7 @@ import { getImageUrl, getPostBySlug, getPostsSlugs } from "../../lib/methods"
 import { IBlogPost } from "../../types"
 import { formatDistance } from "date-fns"
 import CustomPortableText from "../../components/Blog/CustomPortableText"
+import { BLOG_REVALIDATION_IN_SECONDS } from "../../constants"
 
 interface Props {
   post: Pick<
@@ -81,10 +82,11 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
       post,
       imageUrl,
     },
+    revalidate: BLOG_REVALIDATION_IN_SECONDS,
   }
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getPostsSlugs()
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),

@@ -9,18 +9,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter()
 
   useEffect(() => {
-    if (asPath.includes('#')) {
-      const asPathID = asPath.slice(asPath.indexOf('#'), asPath.length)
+    if (asPath.includes("#")) {
+      const asPathID = asPath.slice(asPath.indexOf("#"), asPath.length)
       const destination = document.getElementById(asPathID)
       destination?.scrollIntoView({
         behavior: "smooth",
-        block: "center"
+        block: "center",
       })
     }
   }, [asPath])
 
   return (
-    <ThemeProvider defaultTheme="dark" attribute="class">
+    <ThemeProvider defaultTheme="system" attribute="class">
       <Component {...pageProps} />
     </ThemeProvider>
   )

@@ -33,6 +33,7 @@ const iconProps = {
 
 const SocialLinks: React.FC = () => {
   const { theme, setTheme } = useTheme()
+
   return (
     <ul className="flex items-center justify-center text-black dark:text-white">
       {socialLinks.map((l) => (

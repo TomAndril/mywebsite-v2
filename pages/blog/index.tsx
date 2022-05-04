@@ -16,8 +16,6 @@ const Blog = ({ posts, latestPostImage }: Props) => {
   const latestPost = posts[0]
   const olderPosts = posts.slice(1)
 
-  console.log(olderPosts)
-
   return (
     <BaseLayout
       title="Tomas Nasjleti - Blog"

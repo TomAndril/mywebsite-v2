@@ -1,6 +1,8 @@
 import { GetStaticProps } from "next"
 import BaseLayout from "../../components/BaseLayout"
 import LatestPost from "../../components/Blog/LatestPost"
+import OlderPost from "../../components/Blog/OlderPost"
+import Text from "../../components/Text"
 import { BLOG_REVALIDATION_IN_SECONDS } from "../../constants"
 import { getAllPosts, getImageUrl } from "../../lib/methods"
 import { IBlogPost } from "../../types"
@@ -12,6 +14,10 @@ interface Props {
 
 const Blog = ({ posts, latestPostImage }: Props) => {
   const latestPost = posts[0]
+  const olderPosts = posts.slice(1)
+
+  console.log(olderPosts)
+
   return (
     <BaseLayout
       title="Tomas Nasjleti - Blog"
@@ -19,6 +25,14 @@ const Blog = ({ posts, latestPostImage }: Props) => {
     >
       <div className="m-section">
         <LatestPost post={latestPost} image={latestPostImage} />
+      </div>
+      <div className="m-section">
+        <Text variant="span">Older entries</Text>
+        <div className="my-2">
+          {olderPosts.map((post) => (
+            <OlderPost key={post._id} post={post} />
+          ))}
+        </div>
       </div>
     </BaseLayout>
   )
@@ -41,7 +55,7 @@ export const getStaticProps: GetStaticProps = async () => {
       posts,
       latestPostImage,
     },
-    revalidate: BLOG_REVALIDATION_IN_SECONDS
+    revalidate: BLOG_REVALIDATION_IN_SECONDS,
   }
 }
 

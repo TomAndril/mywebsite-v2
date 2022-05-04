@@ -36,6 +36,14 @@ const components: Partial<PortableTextReactComponents> = {
         {children}
       </Text>
     ),
+    blockquote: ({ children }) => (
+      <Text
+        variant="p"
+        className="inline-block w-auto px-4 py-2 my-2 text-sm rounded md:text-base dark:bg-slate-700 bg-slate-200"
+      >
+        {children}
+      </Text>
+    ),
   },
   types: {
     image: ({ value }) => {
@@ -70,7 +78,10 @@ const components: Partial<PortableTextReactComponents> = {
   },
   listItem: {
     bullet: ({ children }) => (
-      <Text variant="li" className="py-1 ml-8 list-disc text-md md:text-lg lg:text-xl">
+      <Text
+        variant="li"
+        className="py-1 ml-8 list-disc text-md md:text-lg lg:text-xl"
+      >
         {children}
       </Text>
     ),

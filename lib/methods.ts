@@ -12,12 +12,15 @@ export const getAllPosts = async (): Promise<Partial<IBlogPost[]>> => {
     GET_ALL_POSTS_BY_DATE_DESC
   )
   if (posts && posts?.length > 0) {
-    return posts.filter((post) => !/^drafts./.test(post._id))
+    const withoutDuplicates = [...new Set(posts)]
+    return withoutDuplicates.filter((post) => !/^drafts./.test(post._id))
   }
   return posts
 }
 
-export const getPostBySlug = async (slug: string): Promise<IBlogPost | null> => {
+export const getPostBySlug = async (
+  slug: string
+): Promise<IBlogPost | null> => {
   const post = await sanityClient.fetch<IBlogPost>(GET_POST_BY_SLUG, { slug })
   if (post) {
     return post
@@ -40,4 +43,5 @@ export const getImageUrl = (ref: IBlogPost["mainImage"]): string => {
   return builder.image(ref).url()
 }
 
-export const blogEntryImgBuilder = (ref: IBlogPost['mainImage']) => imageUrlBuilder({clientConfig: sanityConfig}).image(ref)
+export const blogEntryImgBuilder = (ref: IBlogPost["mainImage"]) =>
+  imageUrlBuilder({ clientConfig: sanityConfig }).image(ref)

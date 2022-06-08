@@ -2,10 +2,12 @@ import { Cross as Hamburger } from "hamburger-react"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import Link from "next/link"
+import Badge from "./Badge"
 
 interface IPageLinks {
   url: string
   title: string
+  isNew?: boolean
 }
 
 const pageLinks: IPageLinks[] = [
@@ -20,6 +22,7 @@ const pageLinks: IPageLinks[] = [
   {
     title: "Tools",
     url: "/tools",
+    isNew: true,
   },
   {
     url: "/blog",
@@ -61,7 +64,7 @@ const PageLinks: React.FC = () => {
     <>
       <ul className="items-center justify-center hidden text-black md:flex dark:text-white">
         {pageLinks.map((l) => (
-          <li key={l.url}>
+          <li key={l.url} className="relative">
             <Link href={l.url}>
               <a
                 onClick={handleClick}
@@ -74,6 +77,7 @@ const PageLinks: React.FC = () => {
                 {l.title}
               </a>
             </Link>
+            {l.isNew && <Badge text="New" />}
           </li>
         ))}
       </ul>
@@ -96,7 +100,7 @@ const PageLinks: React.FC = () => {
         >
           <ul className="flex flex-col items-center justify-center w-full bg-white border-b dark:bg-slate-900 dark:border-b-slate-800">
             {pageLinks.map((l) => (
-              <li key={l.url} className="my-6">
+              <li key={l.url} className="relative my-6">
                 <Link href={l.url}>
                   <a
                     onClick={handleClick}
@@ -109,6 +113,7 @@ const PageLinks: React.FC = () => {
                     {l.title}
                   </a>
                 </Link>
+                {l.isNew && <Badge text="New" />}
               </li>
             ))}
           </ul>

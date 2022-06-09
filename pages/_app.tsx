@@ -4,9 +4,15 @@ import type { AppProps } from "next/app"
 import { ThemeProvider } from "next-themes"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
+import { Provider } from "react-redux"
+import { persistor, store } from "../store"
+import { PersistGate } from "redux-persist/integration/react"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter()
+
+  const BaseComponent = Component as any
+  const Persistor = PersistGate as any
 
   useEffect(() => {
     if (asPath.includes("#")) {
@@ -21,7 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider defaultTheme="system" attribute="class">
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Persistor persistor={persistor} loading={null}>
+          <BaseComponent {...pageProps} />
+        </Persistor>
+      </Provider>
     </ThemeProvider>
   )
 }

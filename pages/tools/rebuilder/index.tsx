@@ -43,9 +43,11 @@ const ResumeBuilder = () => {
               Seriously. No hidden costs, no surprises. no fees. Just make it
               and download the PDF
             </Text>
-            <button className="px-8 py-3 mt-4 font-semibold tracking-wide text-white uppercase transition-all bg-blue-600 rounded shadow md:mr-auto hover:shadow-lg">
-              Get Started
-            </button>
+            <Link href="/tools/rebuilder/build">
+              <a className="px-8 py-3 mt-4 font-semibold tracking-wide text-white uppercase transition-all bg-blue-600 rounded shadow md:mr-auto hover:shadow-lg">
+                Get Started
+              </a>
+            </Link>
           </div>
           <div className="hidden md:block">
             <Image

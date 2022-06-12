@@ -1,23 +1,40 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-interface State {
+enum FormKeys {
+  firstName = "firstName",
+  lastName = "lastName",
+  email = "email",
+}
+
+type State = {
   currentStep: number
+  formData: {
+    [key in FormKeys]: string
+  }
 }
 
 const initialState: State = {
   currentStep: 1,
+  formData: {
+    firstName: "",
+    lastName: "",
+    email: "",
+  },
 }
 
 export const rebuilderSlice = createSlice({
   initialState,
   name: "Rebuilder",
   reducers: {
-    setCurrentStep: (state, action: PayloadAction<number>) => {
-      state.currentStep = action.payload
+    updateKey: (
+      state,
+      action: PayloadAction<{ key: FormKeys; value: string }>
+    ) => {
+      state.formData[action.payload.key] = action.payload.value
     },
   },
 })
 
-export const { setCurrentStep } = rebuilderSlice.actions
+export const { updateKey } = rebuilderSlice.actions
 
 export default rebuilderSlice.reducer

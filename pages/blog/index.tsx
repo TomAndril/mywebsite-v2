@@ -25,7 +25,12 @@ const Blog = ({ posts, latestPostImage }: Props) => {
         <LatestPost post={latestPost} image={latestPostImage} />
       </div>
       <div className="m-section">
-        <Text variant="span">Older entries</Text>
+        <Text
+          variant="h3"
+          className="text-xl tracking-wide md:text-2xl lg:text-3xl"
+        >
+          Previous Posts
+        </Text>
         <div className="my-2">
           {olderPosts.map((post) => (
             <OlderPost key={post._id} post={post} />

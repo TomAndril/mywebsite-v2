@@ -7,6 +7,8 @@ export enum FormKeys {
   email = "email",
   image = "image",
   introduction = "introduction",
+  phone = "phone",
+  link = "link",
 }
 
 type State = {
@@ -24,6 +26,8 @@ const initialState: State = {
     email: "",
     image: "",
     introduction: "",
+    phone: "",
+    link: "",
   },
 }
 

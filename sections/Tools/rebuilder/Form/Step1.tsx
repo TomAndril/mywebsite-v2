@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { rebuilderSelector, updateKey } from "@rebuilder/state"
 
-import Text from "@components/Text"
-import NavigateButton from "./NavigateButton"
+import StepWrapper from "@rebuilder/Form/StepWrapper"
 
 const Step1 = () => {
   const dispatch = useDispatch()
@@ -27,15 +26,9 @@ const Step1 = () => {
   }
 
   return (
-    <>
-      <Text
-        variant="h3"
-        className="mx-auto mt-16 text-3xl font-semibold tracking-wide text-center"
-      >
-        Lets begin with the basics
-      </Text>
+    <StepWrapper title="Lets Begin with your basics">
       <form className="mt-12">
-        <div className="mt-8">
+        <div>
           <label htmlFor="firstName">First Name</label>
           <input
             onChange={handleUpdate}
@@ -46,7 +39,7 @@ const Step1 = () => {
             className="w-full p-2 mt-1 text-black border-2 rounded-md bg-slate-300 disabled:cursor-not-allowed"
           />
         </div>
-        <div className="mt-8">
+        <div className="mt-4">
           <label htmlFor="lastName">Last Name</label>
           <input
             onChange={handleUpdate}
@@ -57,7 +50,7 @@ const Step1 = () => {
             className="w-full p-2 mt-1 text-black border-2 rounded-md bg-slate-300 disabled:cursor-not-allowed"
           />
         </div>
-        <div className="mt-8">
+        <div className="mt-4">
           <label htmlFor="image">A photo of you</label>
           <input
             onChange={handleImageUpdate}
@@ -69,8 +62,7 @@ const Step1 = () => {
           />
         </div>
       </form>
-      <NavigateButton navigateTo="next" />
-    </>
+    </StepWrapper>
   )
 }
 

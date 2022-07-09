@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { rebuilderSelector, updateKey } from "@rebuilder/state"
 
-import NavigateButton from "./NavigateButton"
-import Text from "@components/Text"
+import StepWrapper from "@rebuilder/Form/StepWrapper"
 
 const Step2 = () => {
   const dispatch = useDispatch()
@@ -16,13 +15,7 @@ const Step2 = () => {
   }
 
   return (
-    <>
-      <Text
-        variant="h3"
-        className="mx-auto mt-16 text-3xl font-semibold tracking-wide text-center"
-      >
-        Give me an introduction of yourself!
-      </Text>
+    <StepWrapper title="Description of yourself!">
       <form className="mt-12">
         <label htmlFor="introduction">Introduction</label>
         <textarea
@@ -33,8 +26,7 @@ const Step2 = () => {
           className="w-full p-2 mt-1 text-black border-2 rounded-md resize-none bg-slate-300 disabled:cursor-not-allowed"
         />
       </form>
-      <NavigateButton navigateTo="back" />
-    </>
+    </StepWrapper>
   )
 }
 

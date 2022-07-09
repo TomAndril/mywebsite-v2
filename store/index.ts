@@ -3,7 +3,7 @@ import { persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import thunk from "redux-thunk"
 import { persistStore } from "redux-persist"
-import rebuilderReducer from "../sections/Tools/rebuilder/reducers"
+import rebuilderReducer from "../sections/Tools/rebuilder/state"
 
 const persistConfig = {
   key: "rebuilder",

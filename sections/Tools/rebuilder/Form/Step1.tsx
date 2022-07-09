@@ -1,22 +1,29 @@
-import React from "react"
-import { useSelector } from "react-redux"
-import { useDispatch } from "react-redux"
-import Text from "../../../../components/Text"
-import { RootState } from "../../../../store"
-import { updateKey } from "../reducers"
-import ContinueButton from "./ContinueButton"
+import { useSelector, useDispatch } from "react-redux"
+import { rebuilderSelector, updateKey } from "@rebuilder/state"
+
+import Text from "@components/Text"
+import NavigateButton from "./NavigateButton"
 
 const Step1 = () => {
   const dispatch = useDispatch()
 
-  const { email, firstName, lastName } = useSelector(
-    (state: RootState) => state.rebuilder.formData
-  )
+  const {
+    formData: { firstName, lastName },
+  } = useSelector(rebuilderSelector)
 
   const handleUpdate = (e: React.FormEvent<HTMLInputElement>) => {
     const newValue = e.currentTarget.value
     const key: any = e.currentTarget.name
     dispatch(updateKey({ key, value: newValue }))
+  }
+
+  const handleImageUpdate = (e: React.FormEvent<HTMLInputElement>) => {
+    let file = ""
+    if (e.currentTarget?.files?.[0]) {
+      file = URL.createObjectURL(e.currentTarget.files?.[0])
+    }
+
+    dispatch(updateKey({ key: "image", value: file }))
   }
 
   return (
@@ -51,18 +58,18 @@ const Step1 = () => {
           />
         </div>
         <div className="mt-8">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="image">A photo of you</label>
           <input
-            onChange={handleUpdate}
-            value={email}
-            id="email"
-            name="email"
-            type="email"
+            onChange={handleImageUpdate}
+            id="image"
+            name="image"
+            type="file"
+            accept="image/*"
             className="w-full p-2 mt-1 text-black border-2 rounded-md bg-slate-300 disabled:cursor-not-allowed"
           />
         </div>
-        <ContinueButton />
       </form>
+      <NavigateButton navigateTo="next" />
     </>
   )
 }

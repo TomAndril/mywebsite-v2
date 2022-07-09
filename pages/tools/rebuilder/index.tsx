@@ -21,14 +21,6 @@ const ResumeBuilder = () => {
           <Link href="/">
             <a>tominas.me</a>
           </Link>
-          <div>
-            <button className="px-6 py-2 ml-2 font-semibold tracking-wide transition-all border rounded border-slate-100 hover:border-slate-300">
-              Log In
-            </button>
-            <button className="px-6 py-2 ml-2 font-semibold tracking-wide text-white transition-all bg-blue-600 rounded shadow-md hover:bg-blue-700">
-              Sign Up
-            </button>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 px-4 mt-12 md:grid-cols-2">
@@ -36,12 +28,14 @@ const ResumeBuilder = () => {
             <Text variant="h1" className="text-xl md:text-2xl lg:text-3xl">
               Make your resume
               <br />
-              <Text variant="span" className="my-2 text-red-400">
+              <Text variant="span" className="font-bold">
                 For Free.
               </Text>
               <br />
-              Seriously. No hidden costs, no surprises. no fees. Just make it
-              and download the PDF
+              <Text variant="span">
+                Seriously. No hidden costs, no surprises. no fees. Just make it
+                and download the PDF
+              </Text>
             </Text>
             <Link href="/tools/rebuilder/build">
               <a className="px-8 py-3 mt-4 font-semibold tracking-wide text-white uppercase transition-all bg-blue-600 rounded shadow md:mr-auto hover:shadow-lg">

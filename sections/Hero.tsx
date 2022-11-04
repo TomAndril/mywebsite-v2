@@ -1,7 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import Text from "../components/Text"
 
+import { differenceInDays } from "date-fns"
+
 const Hero: React.FC = () => {
+  const daysFromStart = differenceInDays(new Date(), new Date("2018 06 01"))
+
   return (
     <div className="m-section">
       <Text
@@ -30,10 +34,11 @@ const Hero: React.FC = () => {
         className="mt-8 text-md sm:text-lg md:text-xl lg:text-2xl"
       >
         I am a highly motivated programmer from Argentina based in Malmö,
-        Sweden. As a full-stack Developer I've been programming
-        for more than 4 years and still learning new technologies every week.
-        Mostly focused on front-end related technologies but my passion is
-        taking me to Mobile, Desktop and beyond 🚀. I currently work at{" "}
+        Sweden. As a full-stack Developer I've been programming for more than{" "}
+        <span className="font-bold">{daysFromStart} days</span> and still
+        learning new technologies every week. Mostly focused on front-end
+        related technologies but my passion is taking me to Mobile, Desktop and
+        beyond 🚀. I currently work at{" "}
         <a
           target="_blank"
           rel="noreferrer"

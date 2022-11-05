@@ -15,4 +15,5 @@ export interface IBlogPost {
   _id: string
   _type: string
   slug: { current: string; _type: string }
+  postImage: string
 }

@@ -4,6 +4,7 @@ import type { AppProps } from "next/app"
 import { ThemeProvider } from "next-themes"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
+import { Analytics } from "@vercel/analytics/react"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter()
@@ -22,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider defaultTheme="system" attribute="class">
       <Component {...pageProps} />
+      <Analytics />
     </ThemeProvider>
   )
 }

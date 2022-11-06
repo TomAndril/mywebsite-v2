@@ -11,8 +11,6 @@ export default function BlogPost({
   categories,
   postImage,
 }: IBlogPost) {
-  console.log(postImage)
-
   return (
     <Link href={`/blog/${slug.current}`}>
       <a className="block mb-4 last:mb-0 relative overflow-hidden border dark:border-slate-800 rounded-lg p-4 shadow-sm">

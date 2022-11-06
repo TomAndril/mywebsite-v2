@@ -34,10 +34,9 @@ const pageLinks: IPageLinks[] = [
 const PageLinks: React.FC = () => {
   const { route } = useRouter()
 
-  const handleClick = (e: any) => {
-    const href = e.target.href
-    if (href.includes("#")) {
-      const hrefID = href.slice(href.indexOf("#"), href.length)
+  const handleClick = (url: IPageLinks['url']) => {
+    if (url.includes("#")) {
+      const hrefID = url.slice(url.indexOf("#"), url.length)
       const destination = document.getElementById(hrefID)
       destination?.scrollIntoView({
         behavior: "smooth",
@@ -58,9 +57,9 @@ const PageLinks: React.FC = () => {
       <ul className="items-center justify-center hidden text-black md:flex dark:text-white">
         {pageLinks.map((l) => (
           <li key={l.url}>
-            <Link href={l.url}>
-              <a
-                onClick={handleClick}
+            <Link href={l.url} passHref>
+              <div
+                onClick={() => handleClick(l.url)}
                 className={`${
                   route === l.url
                     ? `font-bold bg-slate-300 dark:bg-slate-800`
@@ -68,7 +67,7 @@ const PageLinks: React.FC = () => {
                 } text-md px-4 py-2 mr-2 rounded-lg`}
               >
                 {l.title}
-              </a>
+              </div>
             </Link>
           </li>
         ))}
@@ -93,9 +92,9 @@ const PageLinks: React.FC = () => {
           <ul className="flex flex-col items-center justify-center w-full bg-white border-b dark:bg-slate-900 dark:border-b-slate-800">
             {pageLinks.map((l) => (
               <li key={l.url} className="my-6">
-                <Link href={l.url}>
-                  <a
-                    onClick={handleClick}
+                <Link href={l.url} passHref>
+                  <div
+                    onClick={() => handleClick(l.url)}
                     className={`${
                       route === l.url
                         ? `font-bold bg-slate-300 dark:bg-slate-800`
@@ -103,7 +102,7 @@ const PageLinks: React.FC = () => {
                     } text-md px-4 py-2 mr-2 rounded-lg mt-4`}
                   >
                     {l.title}
-                  </a>
+                  </div>
                 </Link>
               </li>
             ))}

@@ -15,7 +15,7 @@ export default function BlogPost({
 
   return (
     <Link href={`/blog/${slug.current}`}>
-      <a className={`block mb-4 last:mb-0 relative `}>
+      <a className="block mb-4 last:mb-0 relative overflow-hidden border dark:border-slate-800 rounded-lg p-4 shadow-sm">
         <Image
           src={postImage}
           layout="fill"
@@ -23,7 +23,7 @@ export default function BlogPost({
           alt="bg"
           className="opacity-5 hover:opacity-20 transition-all"
         />
-        <article className="border rounded-md p-4 shadow-sm">
+        <article>
           <Text variant="h1" className="text-base md:text-xl font-semibold">
             {title}
           </Text>

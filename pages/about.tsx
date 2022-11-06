@@ -57,8 +57,8 @@ const About: NextPage = () => {
         >
           PS: if there is something you'd like to know about me, don't hesitate
           to{" "}
-          <Link href="/#contact">
-            <a className="underline underline-offset-2">contact me</a>
+          <Link href="/#contact" passHref>
+            <div className="underline underline-offset-2">contact me</div>
           </Link>{" "}
           or reach me out on{" "}
           <a

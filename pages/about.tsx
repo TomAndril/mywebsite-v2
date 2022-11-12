@@ -5,6 +5,8 @@ import Link from "next/link"
 import BaseLayout from "../components/BaseLayout"
 import Text from "../components/Text"
 
+import aboutMeHeroImage from "../public/images/aboutme.jpg"
+
 const About: NextPage = () => {
   return (
     <BaseLayout
@@ -18,11 +20,12 @@ const About: NextPage = () => {
 
         <div className="flex justify-start pb-4 greyscale">
           <Image
-            src="/images/aboutme.jpg"
+            src={aboutMeHeroImage}
             width={600}
             height={400}
             alt="Me"
             className="rounded-xl grayscale"
+            placeholder="blur"
           />
         </div>
 

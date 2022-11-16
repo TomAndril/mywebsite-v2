@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import Text from "../components/Text"
 
-import { differenceInDays } from "date-fns"
+interface Props {
+  daysFromStart: string
+}
 
-const Hero: React.FC = () => {
-  const daysFromStart = differenceInDays(new Date(), new Date("2018 06 01"))
-
+const Hero: React.FC<Props> = ({ daysFromStart }) => {
   return (
     <div className="m-section">
       <Text

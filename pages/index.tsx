@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       daysFromStart,
     },
+    revalidate: 60 * 60 * 24
   }
 }
 

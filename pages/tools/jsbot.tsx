@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import axios from "axios"
+import cn from "classnames"
 import { ClipLoader } from "react-spinners"
 import { NextPage } from "next"
 import { useMutation } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
+
 import BaseLayout from "../../components/BaseLayout"
 import React, { useEffect, useState } from "react"
 import Text from "../../components/Text"
@@ -68,8 +70,9 @@ const JsBot: NextPage = () => {
             JS Chat Bot
           </Text>
           <Text variant="h3" className="mt-2 text-sm">
-            This tool is based on an openAI model that is not fully trained, it might throw
-            non-precise answers on certain questions. Use it at your own discretion!
+            This tool is based on an openAI model that is not fully trained, it
+            might throw non-precise answers on certain questions. Use it at your
+            own discretion!
           </Text>
         </div>
         <div>
@@ -79,11 +82,12 @@ const JsBot: NextPage = () => {
                 return (
                   <div
                     key={message}
-                    className={`${
-                      from === "ai"
-                        ? "w-2/3 mr-auto p-2 rounded bg-slate-400 dark:bg-slate-700"
-                        : "ml-auto bg-blue-400 dark:bg-blue-600 p-2 rounded shadow"
-                    } my-2`}
+                    className={cn("w-2/3 my-2 rounded shadow", {
+                      "mr-auto p-2 bg-slate-400 dark:bg-slate-700":
+                        from === "ai",
+                      "ml-auto p-2 bg-blue-400 dark:bg-blue-600":
+                        from === "human",
+                    })}
                   >
                     <Text variant="p" className={`text-sm ${from === "ai"}`}>
                       {message}
@@ -101,9 +105,12 @@ const JsBot: NextPage = () => {
                 {...register("prompt", { required: true })}
                 type="text"
                 id="Prompt"
-                className={`p-2 rounded-br-md rounded-bl-md bg-slate-500 dark:bg-slate-300 text-black outline-0 disabled:cursor-not-allowed w-full h-12 ${
-                  errors.prompt && "border-red-400"
-                }`}
+                className={cn(
+                  "p-2 rounded-br-md rounded-bl-md bg-slate-500 dark:bg-slate-300 text-black outline-0 disabled:cursor-not-allowed w-full h-12",
+                  {
+                    "border-red-400": !!errors.prompt,
+                  }
+                )}
               />
               {mutation.isLoading && (
                 <ClipLoader

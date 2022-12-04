@@ -1,9 +1,10 @@
 import { GetStaticProps } from "next"
-import BaseLayout from "../../components/BaseLayout"
-import Text from "../../components/Text"
 import { BLOG_REVALIDATION_IN_SECONDS } from "../../constants"
 import { getAllPosts, getImageUrl } from "../../lib/methods"
 import { IBlogPost } from "../../types"
+
+import BaseLayout from "../../components/BaseLayout"
+import Text from "../../components/Text"
 import BlogPost from "../../components/Blog/BlogPost"
 
 interface Props {

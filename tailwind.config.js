@@ -10,6 +10,7 @@ module.exports = {
       minHeight: {
         sectionHeight: "calc(50vh - 12rem - 8rem)",
         heroHeight: "calc(90vh - 14rem - 5rem)",
+        chatbotHeight: "calc(60vh - 8rem - 4rem)"
       },
       animation: {
         hero: "hero 10s ease infinite",

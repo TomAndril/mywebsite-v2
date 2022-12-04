@@ -17,16 +17,16 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     const { prompt }: IBody = req.body
+
     const response = await openai.createCompletion({
-      model: "code-davinci-002",
+      model: "text-davinci-003",
       prompt: prompt,
-      temperature: 0,
-      max_tokens: 60,
-      top_p: 1.0,
-      frequency_penalty: 0.5,
-      presence_penalty: 0.0,
-      stop: ["You:"],
+      temperature: 0.9,
+      max_tokens: 150,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0.6,
     })
-    return res.json({ data: response.data })
+    return res.json({ data: response.data.choices })
   }
 }

@@ -413,6 +413,19 @@
     lodash.isplainobject "^4.0.6"
     lodash.merge "^4.6.2"
 
+"@tanstack/query-core@4.19.0":
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.19.0.tgz#be1ad7bfbc4edb68e21ab2a86dd4c52233a40c87"
+  integrity sha512-q+4GvS05nG2UXDE4ng0NU5SQNhT+VqhRTLNVtgVw1tIKJfG3CyYQpP/JwAdzMB7NEqC8L5oo9NAaORxEQN53dg==
+
+"@tanstack/react-query@^4.19.0":
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.19.0.tgz#353169522ff2e6dcfcc36c95ba4c151974a7ec92"
+  integrity sha512-gP4kmfQ3BvCYxTxA/3Xf0P24iNgW539Thk89KzP7X+i+EvFiWhEUMl1NtuI87bFrVEBHs+1ColFNimDidBh/Ww==
+  dependencies:
+    "@tanstack/query-core" "4.19.0"
+    use-sync-external-store "^1.2.0"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -2608,6 +2621,11 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-spinners@^0.13.7:
+  version "0.13.7"
+  resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.13.7.tgz#0f423c415bfa56765ce9fb36ff604e52a92b37a9"
+  integrity sha512-mRamn56bfxWbGcacif5RT3UbeJaXi2AttjtPwSmomuv2IcxjpbfETCzdTvaQpNDk0E33ENJsStsQeKAZFuJcpA==
+
 react-syntax-highlighter@^12.2.1:
   version "12.2.1"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-12.2.1.tgz#14d78352da1c1c3f93c6698b70ec7c706b83493e"
@@ -3130,7 +3148,7 @@ url-parse@^1.1.9, url-parse@^1.4.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-use-sync-external-store@1.2.0:
+use-sync-external-store@1.2.0, use-sync-external-store@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==

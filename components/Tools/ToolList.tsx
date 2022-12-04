@@ -4,7 +4,7 @@ import ToolCard from "./ToolCard"
 const routes: ITool[] = [
   {
     url: "/jsbot",
-    title: "Javascript Helper Bot",
+    title: "Javascript Helper Chat Bot",
     description:
       "Got stuck into a javascript problem? Make the question, get the answer.",
     isNew: true,

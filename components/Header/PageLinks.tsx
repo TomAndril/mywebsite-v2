@@ -3,7 +3,7 @@ import { Cross as Hamburger } from "hamburger-react"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import Link from "next/link"
-import Text from "../Text"
+import Text from "@components/Text"
 
 interface IPageLinks {
   url: string

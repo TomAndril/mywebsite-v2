@@ -1,9 +1,10 @@
 import { PortableText, PortableTextReactComponents } from "@portabletext/react"
 import { getImageUrl } from "../../lib/methods"
-import { IBlogPost } from "../../types"
-import Text from "../Text"
-import CustomImage from "./CustomImage"
+import { IBlogPost } from "@cTypes/index"
 import { CodeBlock, dracula } from "react-code-blocks"
+
+import Text from "@components/Text"
+import CustomImage from "./CustomImage"
 
 interface Props {
   body: IBlogPost["body"]

@@ -1,4 +1,4 @@
-import Text from "./Text"
+import Text from "@components/Text"
 
 const Footer = () => {
   return (

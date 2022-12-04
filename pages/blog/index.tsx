@@ -1,11 +1,11 @@
 import { GetStaticProps } from "next"
-import { BLOG_REVALIDATION_IN_SECONDS } from "../../constants"
-import { getAllPosts, getImageUrl } from "../../lib/methods"
-import { IBlogPost } from "../../types"
+import { BLOG_REVALIDATION_IN_SECONDS } from "@constants"
+import { getAllPosts, getImageUrl } from "@methods"
+import { IBlogPost } from "@cTypes/index"
 
-import BaseLayout from "../../components/BaseLayout"
-import Text from "../../components/Text"
-import BlogPost from "../../components/Blog/BlogPost"
+import BaseLayout from "@components/BaseLayout"
+import Text from "@components/Text"
+import BlogPost from "@components/Blog/BlogPost"
 
 interface Props {
   posts: IBlogPost[]

@@ -1,6 +1,6 @@
+import { ITool } from "@cTypes/index"
 import Link from "next/link"
-import { ITool } from "../../types"
-import Text from "../Text"
+import Text from "@components/Text"
 
 interface Props {
   route: ITool

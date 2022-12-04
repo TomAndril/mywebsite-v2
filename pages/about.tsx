@@ -2,8 +2,9 @@
 import { NextPage } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import BaseLayout from "../components/BaseLayout"
-import Text from "../components/Text"
+
+import BaseLayout from "@components/BaseLayout"
+import Text from "@components/Text"
 
 import aboutMeHeroImage from "../public/images/aboutme.jpg"
 

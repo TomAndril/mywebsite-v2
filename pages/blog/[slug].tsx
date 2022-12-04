@@ -1,12 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from "next"
-import BaseLayout from "../../components/BaseLayout"
-import CustomImage from "../../components/Blog/CustomImage"
-import Text from "../../components/Text"
 import { getImageUrl, getPostBySlug, getPostsSlugs } from "../../lib/methods"
-import { IBlogPost } from "../../types"
+import { IBlogPost } from "@cTypes/index"
 import { formatDistance } from "date-fns"
-import CustomPortableText from "../../components/Blog/CustomPortableText"
-import { BLOG_REVALIDATION_IN_SECONDS } from "../../constants"
+import { BLOG_REVALIDATION_IN_SECONDS } from "@constants"
+
+import BaseLayout from "@components/BaseLayout"
+import CustomImage from "@components/Blog/CustomImage"
+import Text from "@components/Text"
+import CustomPortableText from "@components/Blog/CustomPortableText"
 
 interface Props {
   post: Pick<

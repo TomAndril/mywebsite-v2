@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from "next"
-import BaseLayout from "../components/BaseLayout"
+import BaseLayout from "@components/BaseLayout"
 
 import { differenceInDays } from "date-fns"
 

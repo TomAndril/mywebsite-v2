@@ -1,4 +1,4 @@
-import { ITool } from "../../types"
+import { ITool } from "@cTypes/index"
 import ToolCard from "./ToolCard"
 
 const routes: ITool[] = [

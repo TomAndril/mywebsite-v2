@@ -1,7 +1,7 @@
 import Link from "next/link"
-import Text from "../Text"
+import Text from "@components/Text"
 
-import { IBlogPost } from "../../types"
+import { IBlogPost } from "@cTypes/index"
 import Image from "next/image"
 
 export default function BlogPost({

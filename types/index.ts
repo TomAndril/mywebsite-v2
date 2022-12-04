@@ -17,3 +17,10 @@ export interface IBlogPost {
   slug: { current: string; _type: string }
   postImage: string
 }
+
+export interface ITool {
+  url: string
+  title: string
+  description: string
+  isNew?: boolean
+}

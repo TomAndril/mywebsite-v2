@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { Analytics } from "@vercel/analytics/react"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter()
@@ -20,11 +21,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [asPath])
 
+  const queryClient = new QueryClient()
+
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
-      <Component {...pageProps} />
-      <Analytics />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="system" attribute="class">
+        <Component {...pageProps} />
+        <Analytics />
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 

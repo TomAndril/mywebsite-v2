@@ -2,10 +2,12 @@ import { Cross as Hamburger } from "hamburger-react"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import Link from "next/link"
+import Text from "../Text"
 
 interface IPageLinks {
   url: string
   title: string
+  isNew?: boolean
 }
 
 const pageLinks: IPageLinks[] = [
@@ -22,6 +24,11 @@ const pageLinks: IPageLinks[] = [
     title: "Blog",
   },
   {
+    title: "Tools",
+    url: "/tools",
+    isNew: true,
+  },
+  {
     title: "Projects",
     url: "/#projects",
   },
@@ -34,7 +41,7 @@ const pageLinks: IPageLinks[] = [
 const PageLinks: React.FC = () => {
   const { route } = useRouter()
 
-  const handleClick = (url: IPageLinks['url']) => {
+  const handleClick = (url: IPageLinks["url"]) => {
     if (url.includes("#")) {
       const hrefID = url.slice(url.indexOf("#"), url.length)
       const destination = document.getElementById(hrefID)
@@ -56,7 +63,7 @@ const PageLinks: React.FC = () => {
     <>
       <ul className="items-center justify-center hidden text-black md:flex dark:text-white">
         {pageLinks.map((l) => (
-          <li key={l.url}>
+          <li key={l.url} className="relative">
             <Link href={l.url} passHref>
               <div
                 onClick={() => handleClick(l.url)}
@@ -69,6 +76,14 @@ const PageLinks: React.FC = () => {
                 {l.title}
               </div>
             </Link>
+            {l.isNew && (
+              <Text
+                variant="span"
+                className="absolute -top-2 right-1 bg-blue-400 rounded text-xsm px-1 shadow dark:bg-blue-700 font-semibold"
+              >
+                New
+              </Text>
+            )}
           </li>
         ))}
       </ul>
@@ -91,7 +106,7 @@ const PageLinks: React.FC = () => {
         >
           <ul className="flex flex-col items-center justify-center w-full bg-white border-b dark:bg-slate-900 dark:border-b-slate-800">
             {pageLinks.map((l) => (
-              <li key={l.url} className="my-6">
+              <li key={l.url} className="my-6 relative">
                 <Link href={l.url} passHref>
                   <div
                     onClick={() => handleClick(l.url)}
@@ -104,6 +119,14 @@ const PageLinks: React.FC = () => {
                     {l.title}
                   </div>
                 </Link>
+                {l.isNew && (
+                  <Text
+                    variant="span"
+                    className="absolute top-0 right-1 bg-blue-400 rounded text-xsm px-1 shadow dark:bg-blue-700 font-semibold"
+                  >
+                    New
+                  </Text>
+                )}
               </li>
             ))}
           </ul>

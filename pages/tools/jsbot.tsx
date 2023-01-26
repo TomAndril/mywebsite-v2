@@ -3,8 +3,10 @@ import axios from "axios"
 import cn from "classnames"
 import { ClipLoader } from "react-spinners"
 import { NextPage } from "next"
+import { SendFill } from "react-bootstrap-icons"
 import { useMutation } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
+import { scrollToContainerBottom } from "../../utils"
 
 import BaseLayout from "../../components/BaseLayout"
 import React, { useEffect, useState } from "react"
@@ -27,10 +29,10 @@ const JsBot: NextPage = () => {
       setInteractions((prev) => [...prev, { from: "human", message: prompt }])
       return axios.post("/api/jsbot", { prompt }).then(({ data }) => {
         if (data) {
-          setInteractions((prev) => [
-            ...prev,
-            { from: "ai", message: data.data[0].text },
-          ])
+          setInteractions((prev) => {
+            scrollToContainerBottom("messagesBox")
+            return [...prev, { from: "ai", message: data.data[0].text }]
+          })
         }
       })
     },
@@ -47,6 +49,7 @@ const JsBot: NextPage = () => {
   const onSubmit = ({ prompt }: IFormKeys) => {
     mutation.mutate({ prompt })
     reset()
+    scrollToContainerBottom("messagesBox")
   }
 
   useEffect(() => {
@@ -76,7 +79,10 @@ const JsBot: NextPage = () => {
           </Text>
         </div>
         <div>
-          <div className="bg-slate-300 dark:bg-slate-600 rounded-tr rounded-tl p-4 min-h-chatbotHeight">
+          <div
+            className="bg-slate-300 dark:bg-slate-600 rounded-tr rounded-tl p-4 h-chatbotHeight overflow-auto"
+            id="messagesBox"
+          >
             <div className="flex flex-col">
               {interactions.map(({ from, message }) => {
                 return (
@@ -112,10 +118,17 @@ const JsBot: NextPage = () => {
                   }
                 )}
               />
+              <button
+                disabled={mutation.isLoading}
+                onClick={handleSubmit(onSubmit)}
+                className="absolute right-0 top-0 p-3 bg-slate-500 hover:bg-slate-600 dark:bg-slate-300 dark:hover:bg-slate-400 cursor-pointer transition-all"
+              >
+                <SendFill size={24} color="black" />
+              </button>
               {mutation.isLoading && (
                 <ClipLoader
                   color="rgb(37 99 235 / var(--tw-bg-opacity))"
-                  className="absolute right-4 top-[10px]"
+                  className="absolute right-3 -top-9"
                   size={24}
                 />
               )}

@@ -23,7 +23,7 @@
     "hamburger-react": "^2.4.1",
     "next": "^13.0.2",
     "next-sanity": "^0.5.2",
-    "next-themes": "^0.0.15",
+    "next-themes": "^0.2.1",
     "openai": "^3.1.0",
     "react": "^18.2.0",
     "react-bootstrap-icons": "^1.7.2",
@@ -31,11 +31,13 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.27.1",
     "react-hot-toast": "^2.2.0",
+    "react-scroll": "^1.8.9",
     "react-spinners": "^0.13.7"
   },
   "devDependencies": {
     "@types/node": "17.0.18",
-    "@types/react": "17.0.39",
+    "@types/react": "^18.0.27",
+    "@types/react-scroll": "^1.8.6",
     "autoprefixer": "^10.4.2",
     "eslint": "8.9.0",
     "eslint-config-next": "^13.0.2",

@@ -1,6 +1,9 @@
+import { ReactNode } from "react"
+
 interface ITextProps {
   variant?: "h1" | "h2" | "h3" | "h4" | "span" | "p" | "li"
-  className?: string
+  className?: string,
+  children: ReactNode
 }
 
 const Text: React.FC<ITextProps> = ({

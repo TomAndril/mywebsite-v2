@@ -1,10 +1,12 @@
 import Footer from "./Footer"
 import Header from "./Header"
 import CustomHead from "./Head"
+import { ReactNode } from "react"
 
 interface Props {
   title: string
   description: string
+  children: ReactNode
 }
 
 const BaseLayout: React.FC<Props> = ({ children, description, title }) => {

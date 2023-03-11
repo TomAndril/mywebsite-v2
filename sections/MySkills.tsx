@@ -25,7 +25,7 @@ const MySkills: React.FC = () => {
           <Text variant="span">TypeScript</Text>
           <Text variant="span">React / Redux</Text>
           <Text variant="span">Next.JS</Text>
-          <Text variant="span">Styled Components</Text>
+          <Text variant="span">Tailwind CSS</Text>
         </div>
         <div className="flex flex-col my-4 md:my-2 lg:my-0">
           <Text
@@ -51,6 +51,7 @@ const MySkills: React.FC = () => {
           <Text variant="span">React Native</Text>
           <Text variant="span">Expo</Text>
           <Text variant="span">Electron.JS</Text>
+          <Text variant="span">Tauri</Text>
         </div>
         <div className="flex flex-col my-4 md:my-2 lg:my-0">
           <Text

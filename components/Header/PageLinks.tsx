@@ -25,11 +25,6 @@ const pageLinks: IPageLinks[] = [
     title: "Blog",
   },
   {
-    title: "Tools",
-    url: "/tools",
-    isNew: true,
-  },
-  {
     title: "Projects",
     url: "/#projects",
   },

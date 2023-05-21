@@ -42,10 +42,10 @@ const Hero: React.FC<Props> = ({ daysFromStart }) => {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.boozt.com/"
+          href="https://www.knowit.se/"
           className="font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500"
         >
-          Boozt.com
+          Knowit
         </a>
       </Text>
     </div>

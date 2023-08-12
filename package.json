@@ -31,7 +31,8 @@
     "react-hook-form": "^7.27.1",
     "react-hot-toast": "^2.2.0",
     "react-scroll": "^1.8.9",
-    "react-spinners": "^0.13.7"
+    "react-spinners": "^0.13.7",
+    "resend": "^0.17.2"
   },
   "devDependencies": {
     "@types/node": "17.0.18",

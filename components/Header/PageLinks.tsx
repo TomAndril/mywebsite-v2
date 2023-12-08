@@ -21,10 +21,6 @@ const pageLinks: IPageLinks[] = [
     url: "/about",
   },
   {
-    url: "/blog",
-    title: "Blog",
-  },
-  {
     title: "Projects",
     url: "/#projects",
   },

@@ -5,6 +5,7 @@ interface Props {
   name: string
   email: string
   message: string
+  turnstileToken: string
 }
 
 interface IResponse {

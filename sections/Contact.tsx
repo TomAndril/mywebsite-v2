@@ -1,14 +1,14 @@
-/* eslint-disable react/display-name */
-import Text from "../components/Text"
-import { useForm } from "react-hook-form"
-import useEmail from "../hooks/useEmail"
-import { Toaster } from "react-hot-toast"
-import { useEffect } from "react"
+import Text from "../components/Text";
+import { useForm } from "react-hook-form";
+import useEmail from "../hooks/useEmail";
+import toast, { Toaster } from "react-hot-toast";
+import { useEffect, useState } from "react";
+import { Turnstile } from "next-turnstile";
 
 interface IInputTypes {
-  name: string
-  email: string
-  message: string
+  name: string;
+  email: string;
+  message: string;
 }
 
 const Contact: React.FC = () => {
@@ -17,18 +17,30 @@ const Contact: React.FC = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<IInputTypes>()
+  } = useForm<IInputTypes>();
 
-  const { sendEmail, status } = useEmail()
-  const { failed, loading, success } = status
+  const { sendEmail, status } = useEmail();
+  const { failed, loading, success } = status;
 
-  const onSubmit = (data: IInputTypes) => sendEmail(data)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const onSubmit = (data: IInputTypes) => {
+    if (!turnstileToken) {
+      toast.error("Please verify the captcha");
+      return;
+    }
+    sendEmail({ ...data, turnstileToken });
+  };
 
   useEffect(() => {
     if (success) {
-      reset()
+      reset();
     }
-  }, [success, reset])
+  }, [success, reset]);
+
+  const handleVerifyToken = (token: string) => {
+    setTurnstileToken(token);
+  };
 
   return (
     <div className="m-section" id="#contact">
@@ -92,6 +104,13 @@ const Contact: React.FC = () => {
             {...register("message", { required: true, minLength: 4 })}
           />
         </div>
+
+        <Turnstile
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!}
+          onVerify={handleVerifyToken}
+          theme="auto"
+        />
+
         <div className="flex items-center justify-between mt-4">
           <Text variant="span">
             <a
@@ -110,7 +129,7 @@ const Contact: React.FC = () => {
       </form>
       <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

@@ -1,9 +1,8 @@
 import Text from "../components/Text";
 import { useForm } from "react-hook-form";
 import useEmail from "../hooks/useEmail";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
-import { Turnstile } from "next-turnstile";
 
 interface IInputTypes {
   name: string;
@@ -22,25 +21,13 @@ const Contact: React.FC = () => {
   const { sendEmail, status } = useEmail();
   const { failed, loading, success } = status;
 
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-
-  const onSubmit = (data: IInputTypes) => {
-    if (!turnstileToken) {
-      toast.error("Please verify the captcha");
-      return;
-    }
-    sendEmail({ ...data, turnstileToken });
-  };
+  const onSubmit = (data: IInputTypes) => sendEmail(data);
 
   useEffect(() => {
     if (success) {
       reset();
     }
   }, [success, reset]);
-
-  const handleVerifyToken = (token: string) => {
-    setTurnstileToken(token);
-  };
 
   return (
     <div className="m-section" id="#contact">
@@ -104,12 +91,6 @@ const Contact: React.FC = () => {
             {...register("message", { required: true, minLength: 4 })}
           />
         </div>
-
-        <Turnstile
-          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!}
-          onVerify={handleVerifyToken}
-          theme="auto"
-        />
 
         <div className="flex items-center justify-between mt-4">
           <Text variant="span">

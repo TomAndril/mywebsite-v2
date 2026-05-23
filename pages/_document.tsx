@@ -17,17 +17,6 @@ class Doc extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-            rel="stylesheet"
-          />
-
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="icon"
@@ -51,8 +40,8 @@ class Doc extends Document {
             sizes="16x16"
             href="/favicons/favicon-16x16.png"
           />
-          <meta name="msapplication-TileColor" content="#161b22" />
-          <meta name="theme-color" content="#161b22" />
+          <meta name="msapplication-TileColor" content="#ffffff" />
+          <meta name="theme-color" content="#ffffff" />
           <meta name="author" content="Tomas Nasjleti" />
           <meta
             property="og:title"
@@ -63,9 +52,8 @@ class Doc extends Document {
             property="og:description"
             content="Tomas Nasjleti personal website, information about him, blog posts and more"
           />
-          <meta property="og:image" content="/images/aboutme.jpg" />
         </Head>
-        <body className="overflow-x-hidden transition-all duration-300 bg-white transi dark:bg-slate-900">
+        <body className="antialiased bg-white text-neutral-900 selection:bg-neutral-200">
           <Main />
           <NextScript />
         </body>

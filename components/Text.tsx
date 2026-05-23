@@ -13,7 +13,7 @@ const Text: React.FC<ITextProps> = ({
 }) => {
   const Element = variant
   return (
-    <Element className={`text-black dark:text-white ${className}`}>
+    <Element className={`text-neutral-900 ${className}`}>
       {children}
     </Element>
   )

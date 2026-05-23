@@ -1,53 +1,83 @@
 /* eslint-disable react/no-unescaped-entities */
 import Text from "../components/Text"
 
-interface Props {
-  daysFromStart: string
-}
-
-const Hero: React.FC<Props> = ({ daysFromStart }) => {
+const Hero: React.FC = () => {
   return (
-    <div className="m-section">
-      <Text
-        variant="span"
-        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl"
-      >
-        👋 Hey there! I'm
-      </Text>
-      <Text
-        variant="h1"
-        className="mt-4 text-5xl font-bold sm:text-6xl md:text-7xl lg:text-8xl"
-      >
-        Tomás Nasjleti,
-      </Text>
-      <Text
-        variant="h2"
-        className="mt-4 text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl"
-      >
-        And I'm a <br className="block sm:hidden" />
-        <span className="font-extrabold text-transparent bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text animate-hero">
-          Web Developer.
-        </span>
-      </Text>
-      <Text
-        variant="p"
-        className="mt-8 text-md sm:text-lg md:text-xl lg:text-2xl"
-      >
-        I am a highly motivated programmer from Argentina based in Malmö,
-        Sweden. As a full-stack Developer I've been programming for more than{" "}
-        <span className="font-bold">{daysFromStart} days</span> and still
-        learning new technologies every week. Mostly focused on front-end
-        related technologies but my passion is taking me to Mobile, Desktop and
-        beyond 🚀. I currently work at{" "}
+    <div className="space-y-8">
+      <header className="space-y-2">
+        <Text
+          variant="h1"
+          className="text-4xl sm:text-5xl font-extrabold tracking-tight"
+        >
+          Tomás Nasjleti
+        </Text>
+        <Text
+          variant="p"
+          className="text-xl sm:text-2xl font-medium text-neutral-500 block"
+        >
+          Web Developer
+        </Text>
+      </header>
+
+      <section className="space-y-6 text-neutral-600 text-base sm:text-lg leading-relaxed">
+        <Text variant="p" className="block">
+          I am a highly motivated programmer from Argentina based in Malmö,
+          Sweden, currently working as a full-stack developer at{" "}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.knowit.se/"
+            className="font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+          >
+            Knowit
+          </a>
+          . I have a strong passion for engineering seamless user experiences and constantly enjoy mastering new tools and technologies.
+        </Text>
+
+        <Text variant="p" className="block">
+          My daily stack revolves around{" "}
+          <strong className="font-medium text-neutral-900">React</strong>,{" "}
+          <strong className="font-medium text-neutral-900">Next.js</strong>, and{" "}
+          <strong className="font-medium text-neutral-900">TypeScript</strong>. For backend and APIs, I normally use{" "}
+          <strong className="font-medium text-neutral-900">Node.js</strong>,{" "}
+          <strong className="font-medium text-neutral-900">Express</strong>,{" "}
+          <strong className="font-medium text-neutral-900">PostgreSQL</strong>, and{" "}
+          <strong className="font-medium text-neutral-900">MongoDB</strong>. I also enjoy extending web capabilities to other platforms, building mobile and desktop apps with{" "}
+          <strong className="font-medium text-neutral-900">React Native</strong>,{" "}
+          <strong className="font-medium text-neutral-900">Expo</strong>,{" "}
+          <strong className="font-medium text-neutral-900">Electron</strong>, and{" "}
+          <strong className="font-medium text-neutral-900">Tauri</strong>.
+        </Text>
+
+        <Text variant="p" className="block">
+          I love staying ahead of the newest AI technologies and implementing solutions using them, particularly through tools like <strong className="font-medium text-neutral-900">open-code</strong> and <strong className="font-medium text-neutral-900">spec-driven development</strong>. I have hands-on experience building agentic AI workflows with both local and cloud models, alongside solid cloud experience deploying and managing applications on <strong className="font-medium text-neutral-900">Azure</strong>.
+        </Text>
+      </section>
+
+      <div className="pt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm sm:text-base font-medium">
         <a
+          href="https://github.com/TomAndril"
           target="_blank"
           rel="noreferrer"
-          href="https://www.knowit.se/"
-          className="font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500"
+          className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
         >
-          Knowit
+          GitHub
         </a>
-      </Text>
+        <a
+          href="https://www.linkedin.com/in/tominasweb/"
+          target="_blank"
+          rel="noreferrer"
+          className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="mailto:acatomas@gmail.com"
+          className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+        >
+          Email
+        </a>
+      </div>
     </div>
   )
 }

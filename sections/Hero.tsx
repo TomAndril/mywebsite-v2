@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Text from "../components/Text"
+import Experience from "./Experience"
 
 const Hero: React.FC = () => {
   return (
@@ -54,29 +55,42 @@ const Hero: React.FC = () => {
         </Text>
       </section>
 
-      <div className="pt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm sm:text-base font-medium">
-        <a
-          href="https://github.com/TomAndril"
-          target="_blank"
-          rel="noreferrer"
-          className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://www.linkedin.com/in/tominasweb/"
-          target="_blank"
-          rel="noreferrer"
-          className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="mailto:acatomas@gmail.com"
-          className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
-        >
-          Email
-        </a>
+      <Experience />
+
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <Text variant="h2" className="text-base font-semibold text-neutral-900 block">
+            Let's Connect
+          </Text>
+          <Text variant="p" className="text-sm sm:text-base text-neutral-600 leading-relaxed block">
+            I am always open to discussing new opportunities, collaborating on innovative projects, or simply chatting about emerging web and AI technologies. Feel free to explore my work or reach out.
+          </Text>
+        </div>
+
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm sm:text-base font-medium">
+          <a
+            href="https://github.com/TomAndril"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tominasweb/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="mailto:acatomas@gmail.com"
+            className="text-neutral-500 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+          >
+            Email
+          </a>
+        </div>
       </div>
     </div>
   )
